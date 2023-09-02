@@ -18,6 +18,7 @@ public class EnemyTank : MonoBehaviour
         damage = 50;
         Collider = GetComponent<Collider2D>();
         enemyHealth = GetComponent<EnemyHealth>();
+        Collider.enabled = false;
     }
 
     private void Update()
@@ -30,8 +31,9 @@ public class EnemyTank : MonoBehaviour
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= 5.5f && enemyHealth.canMove && enemyHealth.canMove)
+        if (Vector2.Distance(target.position, transform.position) <= 5.5f && enemyHealth.canMove)
         {
+            Collider.enabled = true;
             Move();
         }
 

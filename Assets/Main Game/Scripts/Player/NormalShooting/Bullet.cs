@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour
 {
-    public ParticleSystem ps;
+    public GameObject hitEffect;
+    public GameObject itemDestroyEffect;
     public float critChance = 25f;
 
     public TextMeshPro damagePopUp;
@@ -34,7 +35,7 @@ public class Bullet : MonoBehaviour
             AudioManager.instance.PlayHitSFX(AudioManager.instance.shootLightning);
             FindObjectOfType<HitStop>().HitStopEffect(0.031f);
             CameraShake.instance.ShakeCamera(.61f, 0.5f);
-            Instantiate(ps, transform.position, Quaternion.identity);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
             Instantiate(beenStruck, collision.transform);
             chainLightningEffect.GetComponent<ChainLightning>().damage = PlayerStats.instance.playerDamage;
             chainLightningEffect.GetComponent<ChainLightning>().amountToChain = amountToChain;
@@ -46,9 +47,20 @@ public class Bullet : MonoBehaviour
         //destroy when hit wall
         if (collision.gameObject.tag == "Wall")
         {
-            Instantiate(ps, transform.position, Quaternion.identity);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
             AudioManager.instance.PlaySFX(classHitWallSound);
+        }
+        if (collision.gameObject.TryGetComponent<Item>(out Item item) && !item.nonDestructible)
+        {
+            Destroy(collision.gameObject);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
         //enemy take damage after all
         if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
@@ -57,12 +69,12 @@ public class Bullet : MonoBehaviour
             FindObjectOfType<HitStop>().HitStopEffect(0.02f);
             CameraShake.instance.ShakeCamera(.2f, 0.5f);
             enemy.TakeDamage(PlayerStats.instance.playerDamage);
-            Instantiate(ps, transform.position, Quaternion.identity);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag=="EnemyBullet")
         {
-            Instantiate(ps, transform.position, Quaternion.identity);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         

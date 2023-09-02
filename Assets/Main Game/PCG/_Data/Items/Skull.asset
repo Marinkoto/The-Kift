@@ -18,3 +18,4 @@ MonoBehaviour:
   addOffset: 1
   health: 1
   nonDestructible: 0
+  ps: {fileID: 7743674265032000945, guid: 71cf341ec41d7b04dbd710c4afed7ca5, type: 3}

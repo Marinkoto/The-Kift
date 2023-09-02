@@ -18,15 +18,17 @@ public class EnemyAIRanged : MonoBehaviour
     public GameObject bullet;
     public Transform rotatePoint;
     private EnemyHealth enemyHealth;
+    private Collider2D coll; 
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         enemyHealth = GetComponent<EnemyHealth>();
-
+        coll = GetComponent<Collider2D>();
+        coll = GetComponent<Collider2D>();
     }
-    
+
     private void Update()
     {
         if (!target)
@@ -39,6 +41,7 @@ public class EnemyAIRanged : MonoBehaviour
         }
         if (Vector2.Distance(target.position, transform.position) <= 7f && enemyHealth.canMove)
         {
+            coll.enabled = true;
             Move();
         }
         Stop();

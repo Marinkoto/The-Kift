@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip playerHit;
     public AudioClip levelUp;
     public AudioClip axeSwoosh;
+    public AudioClip itemDestroy;
 
     private void Awake()
     {

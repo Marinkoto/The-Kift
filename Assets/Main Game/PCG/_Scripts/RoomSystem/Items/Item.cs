@@ -15,13 +15,18 @@ public class Item : MonoBehaviour
     [SerializeField]
     int health = 3;
     [SerializeField]
-    bool nonDestructible;
+    public bool nonDestructible;
 
     [SerializeField]
     private GameObject hitFeedback, destoyFeedback;
-
+    public ParticleSystem ps;
     public UnityEvent OnGetHit { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
+    private void OnDestroy()
+    {
+        AudioManager.instance.PlaySFX(AudioManager.instance.itemDestroy);
+        Instantiate(ps, transform.position+new Vector3(0.5f,0.5f), Quaternion.identity);
+    }
+    
     public void Initialize(ItemData itemData)
     {
         //set sprite
@@ -30,34 +35,13 @@ public class Item : MonoBehaviour
         spriteRenderer.transform.localPosition = new Vector2(0.5f * itemData.size.x, 0.5f * itemData.size.y);
         itemCollider.size = itemData.size;
         itemCollider.offset = spriteRenderer.transform.localPosition;
+        ps = itemData.ps;
 
         if (itemData.nonDestructible)
             nonDestructible = true;
 
         this.health = itemData.health;
 
-    }
-
-    public void GetHit(int damage, GameObject damageDealer)
-    {
-        if (nonDestructible)
-            return;
-        if(health>1)
-            Instantiate(hitFeedback, spriteRenderer.transform.position, Quaternion.identity);
-        else
-            Instantiate(destoyFeedback, spriteRenderer.transform.position, Quaternion.identity);
-        spriteRenderer.transform.DOShakePosition(0.2f, 0.3f, 75, 1, false, true).OnComplete(ReduceHealth);
-    }
-
-    private void ReduceHealth()
-    {
-        health--;
-        if (health <= 0)
-        {
-            spriteRenderer.transform.DOComplete();
-            Destroy(gameObject);
-        }
-            
     }
 }
 

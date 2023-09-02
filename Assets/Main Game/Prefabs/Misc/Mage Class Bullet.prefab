@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fb325242ad7b04db1efc0e70664b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 5653037579675814323, guid: 7de48d20c8e10d74b890d4a992e08da2, type: 3}
+  hitEffect: {fileID: 9015131331035924541, guid: 8dd9289ab3701bf4a87ec007cf7e5624, type: 3}
   critChance: 5
   damagePopUp: {fileID: 6719426965618277449, guid: a62bc3918eaf5834faae8e8f8f52191a, type: 3}
   crit: 1

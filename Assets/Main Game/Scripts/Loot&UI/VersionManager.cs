@@ -10,6 +10,6 @@ public class VersionManager : MonoBehaviour
 
     void Start()
     {
-        textMeshProUGUI.text = "Version: " + "1.05";
+        textMeshProUGUI.text = "Version: " + "1.06";
     }
 }
