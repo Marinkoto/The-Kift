@@ -19,7 +19,7 @@ public class Axe : MonoBehaviour
     public Transform aimTransform;
     private PlayerMovement playerMovement;
     private bool canMove;
-
+    public GameObject hitEffect;
     public Vector3 offset;
     private void Start()
     {
@@ -106,6 +106,14 @@ public class Axe : MonoBehaviour
             returnWeapon = true;
             isRotating = false;
             transform.position = Vector2.MoveTowards(transform.position, player.position + offset, moveSpeed * 3 * Time.deltaTime);
+        }
+        if (collision.gameObject.TryGetComponent<Item>(out Item item) && !item.nonDestructible && isDamaged)
+        {
+            isDamaged = true;
+            returnWeapon = true;
+            isRotating = false;
+            Destroy(collision.gameObject);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
         }
     }
 }

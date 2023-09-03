@@ -389,6 +389,7 @@ MonoBehaviour:
   - {fileID: 3717904370216183613, guid: d66c57a41976fce4c81a1f7aff2ea9b2, type: 3}
   - {fileID: 6333342816524987211, guid: 42178b818143ab14a969ec41a3b58315, type: 3}
   - {fileID: 4615133614342062920, guid: 301649d5688843d40b7a7f018d2b73b7, type: 3}
+  - {fileID: 4568283471912504124, guid: f40e559eab4c3bc43862f5592ea29a00, type: 3}
 --- !u!4 &99313563
 Transform:
   m_ObjectHideFlags: 0
@@ -8585,10 +8586,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ab7049e8bf52a41bea8dbb2cb826ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDamage: 65
-  playerHealth: 219
+  playerDamage: 42.5
+  playerHealth: 210
   playerMaxHealth: 210
-  playerMoveSpeed: 4.87
+  playerMoveSpeed: 3.66
   currentExp: 0
   maxExp: 500
   level: 1
@@ -40346,9 +40347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ab7049e8bf52a41bea8dbb2cb826ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDamage: 55
-  playerHealth: 300
-  playerMaxHealth: 300
+  playerDamage: 35
+  playerHealth: 220
+  playerMaxHealth: 220
   playerMoveSpeed: 3.75
   currentExp: 0
   maxExp: 500
@@ -52199,6 +52200,7 @@ MonoBehaviour:
   rotateSpeed: 1200
   moveSpeed: 10
   aimTransform: {fileID: 1753938304}
+  hitEffect: {fileID: 0}
   offset: {x: 0.79, y: 0.37, z: 0}
 --- !u!212 &1718047385
 SpriteRenderer:
@@ -52265,7 +52267,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.009885915, y: -0.024714619}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -52276,7 +52278,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.70718235, y: 0.70718235}
+  m_Size: {x: 0.21288924, y: 0.1832318}
   m_EdgeRadius: 0
 --- !u!1 &1730959102
 GameObject:

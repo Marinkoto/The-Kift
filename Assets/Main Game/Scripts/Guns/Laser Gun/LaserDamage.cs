@@ -19,10 +19,11 @@ public class LaserDamage : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var hitColls = Physics2D.OverlapCircleAll(transform.position, 0.6f);
+        var hitColls = Physics2D.OverlapCircleAll(transform.position, 0.7f);
         foreach (var hitColl in hitColls)
         {
             var enemy = hitColl.GetComponent<EnemyHealth>();
+            
             if (enemy)
             {
                 hitStopEffect.HitStopEffect(0.02f);
@@ -32,11 +33,9 @@ public class LaserDamage : MonoBehaviour
             }
             else
             {
-                Collider.enabled = false;
-                Destroy(gameObject,2f);
+                Destroy(gameObject);
             }
         }
-       
     }
 
 }

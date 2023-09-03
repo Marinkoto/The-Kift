@@ -33,7 +33,7 @@ public class EnemyTank : MonoBehaviour
         }
         if (Vector2.Distance(target.position, transform.position) <= 5.5f && enemyHealth.canMove)
         {
-            Collider.enabled = true;
+            
             Move();
         }
 
@@ -45,6 +45,8 @@ public class EnemyTank : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player"))
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
+            Collider.enabled = true;
+
         }
     }
    

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBulletMultiShot : MonoBehaviour
+public class EnemyBulletTurret : MonoBehaviour
 {
     [Range(5, 15)]
     [SerializeField] private float speed = 2f;
@@ -12,13 +12,33 @@ public class EnemyBulletMultiShot : MonoBehaviour
     GameObject target;
     public float damage;
     public ParticleSystem ps;
+    public EnemyAiTurret[] turret;
     private void Start()
     {
-        rb=GetComponent<Rigidbody2D>();
+        int random = Random.Range(1, 5);
+        rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
-        Vector2 moveDir = (target.transform.position - transform.position).normalized * speed;
-        rb.velocity = new Vector2(moveDir.x, moveDir.y);
-        Destroy(this.gameObject,lifeTime);
+        if (random == 1)
+        {
+            Vector2 moveDir = transform.right * speed;
+            rb.velocity = new Vector2(moveDir.x, moveDir.y);
+        }
+        if (random == 2)
+        {
+            Vector2 moveDir = transform.up * speed;
+            rb.velocity = new Vector2(moveDir.x, moveDir.y);
+        }
+        if (random == 3)
+        {
+            Vector2 moveDir = -transform.right * speed;
+            rb.velocity = new Vector2(moveDir.x, moveDir.y);
+        }
+        if (random == 4)
+        {
+            Vector2 moveDir = -transform.up * speed;
+            rb.velocity = new Vector2(moveDir.x, moveDir.y);
+        }
+        Destroy(this.gameObject, lifeTime);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,7 +50,7 @@ public class EnemyBulletMultiShot : MonoBehaviour
         }
         if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth player))
         {
-            
+
 
             player.TakeDamage(damage);
             Instantiate(ps, transform.position, Quaternion.identity);
@@ -42,5 +62,4 @@ public class EnemyBulletMultiShot : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
