@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
-using System;
 using System.Net;
 using UnityEngine.Events;
 
@@ -23,6 +22,8 @@ public class PlayerShoot : MonoBehaviour
     public bool splashable = false;
     public GameObject splashDamageBullet;
     public AudioClip classFireSound;
+    public int bulletAmount;
+    public float spread;
 
     private void Awake()
     {
@@ -89,13 +90,18 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Shoot()
     {
-        if (currentClip > 0)
+        for (int i = 0; i < bulletAmount; i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            AudioManager.instance.PlaySFX(classFireSound);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
-            currentClip--;
+            if (currentClip > 0)
+            {
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                AudioManager.instance.PlaySFX(classFireSound);
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                Vector2 dir = firePoint.transform.right;
+                Vector2 pdir = Vector2.Perpendicular(dir) * Random.Range(-spread, spread);
+                rb.AddForce((dir+pdir)*bulletForce, ForceMode2D.Impulse);
+                currentClip--;
+            }
         }
     }
     public IEnumerator Reload()

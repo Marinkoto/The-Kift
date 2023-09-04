@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //lightning chain + crit check
+        //lightning chain 
         if (chainsLightning && collision.gameObject.tag == "Enemy")
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.shootLightning);
@@ -57,10 +57,11 @@ public class Bullet : MonoBehaviour
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else
+        if (collision.gameObject.tag == "Items")
         {
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            AudioManager.instance.PlaySFX(classHitWallSound);
         }
         //enemy take damage after all
         if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))

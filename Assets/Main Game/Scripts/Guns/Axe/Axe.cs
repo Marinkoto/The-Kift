@@ -47,7 +47,7 @@ public class Axe : MonoBehaviour
             isDamaged = false;
             canCallBack = true;
         }
-        if (Input.GetMouseButtonDown(0)&&canCallBack)
+        if (canCallBack)
         {
             isDamaged = true;
             returnWeapon = true;
