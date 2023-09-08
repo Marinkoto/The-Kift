@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -6384397567641730099}
   - component: {fileID: -224471071479762916}
   - component: {fileID: 5417255043689521309}
+  - component: {fileID: -6306032058319323513}
   m_Layer: 0
   m_Name: Mage Class Bullet
   m_TagString: Bullet
@@ -103,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 9015131331035924541, guid: 8dd9289ab3701bf4a87ec007cf7e5624, type: 3}
+  itemDestroyEffect: {fileID: 0}
   critChance: 5
   damagePopUp: {fileID: 6719426965618277449, guid: a62bc3918eaf5834faae8e8f8f52191a, type: 3}
   crit: 1
@@ -273,6 +275,22 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04451874, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4099057
+--- !u!58 &-6306032058319323513
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194499182327926161}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.04451874, y: 0}

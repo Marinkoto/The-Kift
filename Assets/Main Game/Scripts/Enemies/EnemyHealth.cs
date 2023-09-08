@@ -7,12 +7,12 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float health,maxHealth = 50f;
+    public float boundHealth;
     public Material matWhite;
     private Material matDef;
     SpriteRenderer sr;
     public GameObject lootPrefab;
-    public GameObject floatingTextPrefab;
-    public Animator anim; 
+    public GameObject floatingTextPrefab; 
     [HideInInspector]
     public bool canMove = true;
     public ParticleSystem particles;
@@ -24,7 +24,6 @@ public class EnemyHealth : MonoBehaviour
         matDef = sr.material;
         enemyColldider = GetComponent<Collider2D>();
     }
-    
     public void TakeDamage(float damage)
     {
         ShowDamage(Mathf.RoundToInt(damage).ToString());
@@ -35,8 +34,7 @@ public class EnemyHealth : MonoBehaviour
         {
             enemyColldider.enabled = false;
             canMove = false;
-            anim.SetBool("Dead", true);
-            Destroy(gameObject,0.2f);
+            Destroy(gameObject);
             sr.material = matWhite;
             Instantiate(particles,transform.position,Quaternion.identity);
             Invoke("ResetMaterial",.25f); 

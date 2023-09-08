@@ -7,6 +7,14 @@ public class StatsIncrease : MonoBehaviour
 {
     public GameObject[] enemies;
     public EnemyHealth[] enemiesHealth;
+    private void Start()
+    {
+        foreach (var enemy in enemiesHealth)
+        {
+            enemy.maxHealth = enemy.boundHealth;
+            enemy.health = enemy.boundHealth;
+        }
+    }
     public void IncreaseDamage()
     {
         Mathf.RoundToInt(PlayerStats.instance.playerDamage+= PlayerStats.instance.playerDamage *= 0.075f);

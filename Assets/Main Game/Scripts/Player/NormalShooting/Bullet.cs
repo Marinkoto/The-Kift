@@ -26,6 +26,32 @@ public class Bullet : MonoBehaviour
     {
           Destroy(gameObject,6f);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
+        {
+            AudioManager.instance.PlayHitSFX(AudioManager.instance.enemyHit);
+            FindObjectOfType<HitStop>().HitStopEffect(0.02f);
+            CameraShake.instance.ShakeCamera(.2f, 0.5f);
+            enemy.TakeDamage(PlayerStats.instance.playerDamage);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        if (chainsLightning && collision.gameObject.tag == "Enemy")
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.shootLightning);
+            AudioManager.instance.PlayHitSFX(AudioManager.instance.shootLightning);
+            FindObjectOfType<HitStop>().HitStopEffect(0.031f);
+            CameraShake.instance.ShakeCamera(.61f, 0.5f);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Instantiate(beenStruck, collision.transform);
+            chainLightningEffect.GetComponent<ChainLightning>().damage = PlayerStats.instance.playerDamage;
+            chainLightningEffect.GetComponent<ChainLightning>().amountToChain = amountToChain;
+            Instantiate(chainLightningEffect, collision.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //lightning chain 

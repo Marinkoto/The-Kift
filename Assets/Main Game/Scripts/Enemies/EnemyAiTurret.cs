@@ -11,7 +11,6 @@ public class EnemyAiTurret : MonoBehaviour
     public float fireRate;
     private float timeToFire;
     public GameObject bullet;
-    public Transform rotatePoint;
     private Collider2D coll;
 
     private void Start()
