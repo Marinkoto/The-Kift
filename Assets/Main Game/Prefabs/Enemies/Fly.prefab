@@ -191,7 +191,7 @@ MonoBehaviour:
   distanceToShoot: 6
   distanceToStop: 5
   firingPoint: {fileID: 6333342814634283839}
-  fireRate: 0.5
+  fireRate: 1.25
   bullet: {fileID: 496967885895071457, guid: 4b7b99915ee808941bf199b702755a7e, type: 3}
   rotatePoint: {fileID: 6333342815216044414}
 --- !u!114 &6333342816524987211
@@ -206,13 +206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b9f98418ed3e4f9306d609cc71399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 175
   maxHealth: 175
   boundHealth: 175
   matWhite: {fileID: 2100000, guid: e3d9a28ca504a9c4284b986fd9faa7ff, type: 2}
   lootPrefab: {fileID: 6523960941471899613, guid: c0ab35c149c647348ae15dcd8ccb6b4e, type: 3}
   floatingTextPrefab: {fileID: 6719426965618277448, guid: a62bc3918eaf5834faae8e8f8f52191a, type: 3}
-  anim: {fileID: 6333342816524987222}
   canMove: 1
   particles: {fileID: 2915278639817589186, guid: 789fce019c7038a4389680c884447992, type: 3}
 --- !u!50 &-7133860609126878944
