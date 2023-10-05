@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7743674265032000945}
   - component: {fileID: 9087198185304812520}
   m_Layer: 0
-  m_Name: Item Destroy (Crystal)
+  m_Name: 'Item Destroy (Vase) '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.8239624, g: 0.21034172, b: 0.9528302, a: 1}
+      maxColor: {r: 0.09903879, g: 0.49056602, b: 0.4021151, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1363,8 +1363,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.98039216, g: 0.2, b: 0.8968728, a: 1}
-        key1: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 0.5019608}
+        key0: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0.5019608}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}

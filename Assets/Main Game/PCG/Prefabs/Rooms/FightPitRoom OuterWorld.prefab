@@ -66,15 +66,15 @@ MonoBehaviour:
   - minQuantity: 2
     maxQuantity: 4
     itemData: {fileID: 11400000, guid: d33f6fea7db47904a997959b7bdf3e4c, type: 2}
-  - minQuantity: 1
-    maxQuantity: 1
-    itemData: {fileID: 11400000, guid: 1ef5cb8e8144742469653fb906719ba2, type: 2}
   - minQuantity: 0
     maxQuantity: 1
     itemData: {fileID: 11400000, guid: a1ac73c139994424daee6b5dd807236e, type: 2}
-  - minQuantity: 2
-    maxQuantity: 3
+  - minQuantity: 1
+    maxQuantity: 2
     itemData: {fileID: 11400000, guid: 03f32d5b6fe59644c94eb4f8902e6292, type: 2}
   - minQuantity: 2
-    maxQuantity: 4
+    maxQuantity: 3
     itemData: {fileID: 11400000, guid: afccf0d2361211b4cbe3070fa24ebc17, type: 2}
+  - minQuantity: 1
+    maxQuantity: 2
+    itemData: {fileID: 11400000, guid: ecc38cf9334803343af7c9553d402793, type: 2}

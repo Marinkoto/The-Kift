@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a83f2a5bea8447489822be80764763e, type: 3}
-  m_Name: Box
+  m_Name: Spike Big
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 538362815ca8090439378e5267628145, type: 3}
+  sprite: {fileID: 21300000, guid: 49e85b286da56544396431e5c08c8cbc, type: 3}
   size: {x: 1, y: 1}
   placementType: 0
   addOffset: 0
   health: 1
   nonDestructible: 0
-  ps: {fileID: 7743674265032000945, guid: 3293b5b4f0e414b4e97ac71f9f943d5e, type: 3}
+  ps: {fileID: 7743674265032000945, guid: 7a33ea2bfc77b774087b713f56651d62, type: 3}
