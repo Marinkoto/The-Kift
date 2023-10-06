@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeons:
-  - {fileID: 0}
+  - {fileID: 5033930733592909855, guid: 098c89137bcc3b94980faeff403fac15, type: 3}
   dungeonNumber: 1
 --- !u!1 &186861967109486509
 GameObject:
