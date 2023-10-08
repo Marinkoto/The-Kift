@@ -30,6 +30,7 @@ public class PlayerStats : MonoBehaviour
         else
             instance = this;
     }
+    
     private void OnEnable()
     {
         ExperienceManager.instance.OnExperienceChange += HandleExpChange;
