@@ -15,7 +15,10 @@ public class Loot : MonoBehaviour
     }
     private void Update()
     {
-        StartCoroutine(Follow()); 
+        if (Vector2.Distance(transform.position,target.position)<=5f)
+        {
+            StartCoroutine(Follow()); 
+        }
     }
     public IEnumerator Follow()
     {

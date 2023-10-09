@@ -31,7 +31,7 @@ public class EnemyTank : MonoBehaviour
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= 5.5f && enemyHealth.canMove)
+        if (Vector2.Distance(target.position, transform.position) <= 10f && enemyHealth.canMove)
         {
             Invoke("Move", 1.25f);
         }
