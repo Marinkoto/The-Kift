@@ -12,18 +12,19 @@ public class Loot : MonoBehaviour
     {
         coll = GetComponent<Collider2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        coll.enabled = false;
     }
     private void Update()
     {
-        if (Vector2.Distance(transform.position,target.position)<=5f)
-        {
-            StartCoroutine(Follow()); 
+        if (Vector2.Distance(transform.position,target.position)<=2f)
+        { 
+            Follow(); 
         }
+        Destroy(gameObject, 13f);
     }
-    public IEnumerator Follow()
+    public void Follow()
     {
         coll.enabled = false;
-        yield return new WaitForSeconds(minModifier-5f);
         transform.position = Vector2.Lerp(transform.position, target.transform.position, 
             Random.Range(minModifier,maxModifier) * Time.deltaTime);
         float dis = Vector2.Distance(target.position, transform.position);
@@ -37,6 +38,7 @@ public class Loot : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             ExperienceManager.instance.AddExp(50);
+            AudioManager.instance.PlaySFX(AudioManager.instance.lootSound);
             Destroy(gameObject);
         }
     }

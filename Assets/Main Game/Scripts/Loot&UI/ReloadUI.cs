@@ -6,26 +6,21 @@ public class ReloadUI : MonoBehaviour
 {
     public Transform objectToFollow;
     RectTransform rect;
-    
+    [SerializeField] Vector3 offset;
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
     }
-    void Start()
-    {
-    }
-
     void Update()
     {
-        objectToFollow = ClassesHandler.instance.classSelected;
-        if(!objectToFollow )
+        objectToFollow = GameObject.FindGameObjectWithTag("Player").transform;
+        if (!objectToFollow )
         {
             return;
         }
         if (objectToFollow!=null)
         {
-            
-            rect.anchoredPosition = objectToFollow.position;
+            rect.anchoredPosition = objectToFollow.position+offset;
         }
     }
 }

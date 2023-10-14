@@ -14,7 +14,6 @@ public class PlayerHealth : MonoBehaviour
         PlayerStats.instance.playerHealth = PlayerStats.instance.playerMaxHealth;
         matDef = sr.material;
         playerHealthBar.SetUIHealth(PlayerStats.instance.playerHealth, PlayerStats.instance.playerMaxHealth);
-
     }
     public void TakeDamage(float damage)
     {
@@ -26,7 +25,6 @@ public class PlayerHealth : MonoBehaviour
         {
             return;
         }
-        playerHealthBar.SetUIHealth(PlayerStats.instance.playerHealth, PlayerStats.instance.playerMaxHealth);
         if (PlayerStats.instance.playerHealth <= 0)
         {
             SceneManager.LoadScene(1);
@@ -35,6 +33,10 @@ public class PlayerHealth : MonoBehaviour
         {
             Invoke("ResetMaterial", .15f);
         }
+    }
+    private void Update()
+    {
+        playerHealthBar.SetUIHealth(PlayerStats.instance.playerHealth, PlayerStats.instance.playerMaxHealth);
     }
     void ResetMaterial()
     {

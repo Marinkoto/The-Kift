@@ -9,12 +9,8 @@ public class Bullet : MonoBehaviour
 {
     public GameObject hitEffect;
     public GameObject itemDestroyEffect;
-    public float critChance = 25f;
 
     public TextMeshPro damagePopUp;
-
-    public bool crit = false;
-    public float critMultiplier = 1.5f;
 
     public GameObject chainLightningEffect;
     public GameObject beenStruck;
@@ -42,7 +38,7 @@ public class Bullet : MonoBehaviour
             AudioManager.instance.PlaySFX(AudioManager.instance.shootLightning);
             AudioManager.instance.PlayHitSFX(AudioManager.instance.shootLightning);
             FindObjectOfType<HitStop>().HitStopEffect(0.031f);
-            CameraShake.instance.ShakeCamera(.61f, 0.5f);
+            CameraShake.instance.ShakeCamera(.21f, 0.5f);
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Instantiate(beenStruck, collision.transform);
             chainLightningEffect.GetComponent<ChainLightning>().damage = PlayerStats.instance.playerDamage;
@@ -60,7 +56,7 @@ public class Bullet : MonoBehaviour
             AudioManager.instance.PlaySFX(AudioManager.instance.shootLightning);
             AudioManager.instance.PlayHitSFX(AudioManager.instance.shootLightning);
             FindObjectOfType<HitStop>().HitStopEffect(0.031f);
-            CameraShake.instance.ShakeCamera(.61f, 0.5f);
+            CameraShake.instance.ShakeCamera(.2f, 0.5f);
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Instantiate(beenStruck, collision.transform);
             chainLightningEffect.GetComponent<ChainLightning>().damage = PlayerStats.instance.playerDamage;

@@ -6,8 +6,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject crosshair;
     public GameObject healthBar;
+    public GameObject expBar;
 
     public static bool isPaused;
+    public static bool canPause;
     void Start()
     {
         pauseMenu.SetActive(false);
@@ -17,19 +19,21 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && canPause)
         {
             if (isPaused)
             {
                 ResumeGame();
                 EnableCrosshair();
                 EnableHealthBar();
+                EnableEXPBar();
             }
             else
             {
                 PauseGame();
                 DisableCrosshair();
                 DisableHealthBar();
+                DisableEXPBar();
             }
         }
     }
@@ -71,5 +75,13 @@ public class PauseMenu : MonoBehaviour
     public void EnableHealthBar()
     {
         healthBar.SetActive(true);
+    }
+    public void DisableEXPBar()
+    {
+        expBar.SetActive(false);
+    }
+    public void EnableEXPBar()
+    {
+        expBar.SetActive(true);
     }
 }

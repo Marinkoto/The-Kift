@@ -12,6 +12,9 @@ TagManager:
   - Items
   - FPS
   - PS
+  - PCG
+  - DamagePopUp
+  - Bullet Counter
   layers:
   - Default
   - TransparentFX

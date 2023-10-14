@@ -4,6 +4,7 @@ using UnityEngine;
 using CodeMonkey.Utils;
 using System.Net;
 using UnityEngine.Events;
+using TMPro;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -18,13 +19,10 @@ public class PlayerShoot : MonoBehaviour
     bool canReload = true;
     public bool canShoot = true;
     public UnityEvent<float> OnReloading;
-    private float spikeBallRate = 10f;
-    public bool splashable = false;
-    public GameObject splashDamageBullet;
     public AudioClip classFireSound;
     public int bulletAmount;
     public float spread;
-
+    public TextMeshProUGUI bulletCounter;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -35,26 +33,15 @@ public class PlayerShoot : MonoBehaviour
         {
             instance = this;
         }
-        slider.gameObject.SetActive(true);
+        slider.gameObject.SetActive(false);
     }
     private void Start()
     {
-        splashable = false;
         OnReloading?.Invoke(reloadTime);
-        spikeBallRate = 0;
+        bulletCounter.text = $"{currentClip}/{maxClipSize}";
     }
     private void Update()
     {
-        if (spikeBallRate<=0)
-        {
-            spikeBallRate = 10f;
-            if (splashable && Input.GetKeyDown(KeyCode.Q))
-            {
-                spikeBallRate -= Time.deltaTime;
-                Instantiate(splashDamageBullet, firePoint.position, firePoint.rotation);
-            }
-        }
-       
         if (Input.GetKeyDown(KeyCode.R) && canReload && maxClipSize!=currentClip && !PauseMenu.isPaused)
         {
             slider.gameObject.SetActive(true);
@@ -101,6 +88,7 @@ public class PlayerShoot : MonoBehaviour
                 Vector2 pdir = Vector2.Perpendicular(dir) * Random.Range(-spread, spread);
                 rb.AddForce((dir+pdir)*bulletForce, ForceMode2D.Impulse);
                 currentClip--;
+                bulletCounter.text = $"{currentClip}/{maxClipSize}";
             }
         }
     }
@@ -114,6 +102,8 @@ public class PlayerShoot : MonoBehaviour
         currentClip += reloadAmount;
         canReload = true;
         canShoot = true;
+        slider.gameObject.SetActive(false);
+        bulletCounter.text = $"{currentClip}/{maxClipSize}";
     }
     
 }

@@ -7,6 +7,7 @@ public class StatsIncrease : MonoBehaviour
 {
     public GameObject[] enemies;
     public EnemyHealth[] enemiesHealth;
+    public PlayerHealthBar playerHealth;
     private void Start()
     {
         foreach (var enemy in enemiesHealth)
@@ -25,19 +26,20 @@ public class StatsIncrease : MonoBehaviour
     }
     public void IncreaseHealth()
     {
-        Mathf.RoundToInt(PlayerStats.instance.playerMaxHealth += PlayerStats.instance.playerMaxHealth *= 0.05f);
+        Mathf.RoundToInt(PlayerStats.instance.playerMaxHealth += PlayerStats.instance.playerMaxHealth *= 0.1f);
+        playerHealth.SetUIHealth(PlayerStats.instance.playerHealth, PlayerStats.instance.playerMaxHealth);
         foreach (var enemy in enemiesHealth)
         {
-            enemy.maxHealth += enemy.maxHealth *= 0.03f;
+            enemy.maxHealth += enemy.maxHealth *= 0.05f;
         }
 
     }
     public void IncreaseMoveSpeed()
     {
-        PlayerStats.instance.playerMoveSpeed+=PlayerStats.instance.playerMoveSpeed *= 0.045f;
+        PlayerStats.instance.playerMoveSpeed+=PlayerStats.instance.playerMoveSpeed *= 0.1f;
         foreach (var enemy in enemiesHealth)
         {
-            enemy.maxHealth += enemy.maxHealth *= 0.04f;
+            enemy.maxHealth += enemy.maxHealth *= 0.05f;
         }
     }
     public void StartTime()

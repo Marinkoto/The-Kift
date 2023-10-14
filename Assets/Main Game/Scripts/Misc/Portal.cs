@@ -9,13 +9,20 @@ public class Portal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerStats.instance.Invoke("ActivateUI", 0.5f);
+            PlayerStats.instance.Invoke("ActivateUI", 0.3f);
             Cursor.visible = true;
             AudioManager.instance.PlaySFX(AudioManager.instance.enterPortal);
+            StartCoroutine(StopTime());
         }
     }
     public void SetPosition()
     {
-        PlayerStats.instance.Invoke("SetStartPosition", 0.275f);
+        PlayerStats.instance.Invoke("SetStartPosition", 1f);
+        
+    }
+    public IEnumerator StopTime()
+    {
+        yield return new WaitForSeconds(1.2f);
+        Time.timeScale = 0f;
     }
 }

@@ -24,5 +24,6 @@ public class ButtonListener : MonoBehaviour
     private void Update()
     {
         dungeonGenerator = GameObject.Find("CorridorFirstDungeonGenerator").GetComponent<CorridorFirstDungeonGenerator>();
+        controller = GameObject.FindGameObjectWithTag("PCG").GetComponent<DungeonController>();
     }
 }

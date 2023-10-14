@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -15,10 +17,16 @@ public class PlayerStats : MonoBehaviour
     public float level = 1;
     public GameObject statsUI;
     public Transform startPos;
+    public Slider expBar;
+    public TextMeshProUGUI expText;
+    public TextMeshProUGUI levelText;
     public void SetStartPosition()
     {
-        transform.position = Vector2.zero;
-        transform.position = new Vector2(startPos.position.x,startPos.position.y);
+        Invoke("StartPosition", 1f);
+    }
+    public void StartPosition()
+    {
+        transform.position = startPos.position;
     }
     private void Awake()
     {
@@ -30,7 +38,15 @@ public class PlayerStats : MonoBehaviour
         else
             instance = this;
     }
-    
+    private void Start()
+    {
+        levelText.text = $"LEVEL {level}";
+        expText.text = $"{currentExp}/{maxExp}";
+    }
+    private void Update()
+    {
+        startPos = GameObject.Find("Start Pos").gameObject.transform;
+    }
     private void OnEnable()
     {
         ExperienceManager.instance.OnExperienceChange += HandleExpChange;
@@ -43,6 +59,9 @@ public class PlayerStats : MonoBehaviour
     private void HandleExpChange(int newExp)
     {
         currentExp += newExp;
+        expBar.value = currentExp;
+        expBar.maxValue = maxExp;
+        expText.text = $"{currentExp}/{maxExp}";
         if (currentExp>=maxExp)
         {
             LevelUp();
@@ -51,19 +70,23 @@ public class PlayerStats : MonoBehaviour
     public void LevelUp()
     {
         playerDamage += 5f;
-        playerHealth += 10f;
+        playerMaxHealth += 5f;
         level++;
-        maxExp += 100f;
+        maxExp += 200f;
         currentExp = 0f;
+        levelText.text = $"LEVEL {level}";
+        expBar.value = currentExp;
+        expBar.maxValue = maxExp;
+        expText.text = $"{currentExp}/{maxExp}";
         if (playerHealth<=playerMaxHealth-50f)
         {
-            playerHealth = playerHealth += 50;
+            playerHealth = playerHealth + 20;
         }
         else
         {
             playerHealth = playerMaxHealth;
         }
-        AudioManager.instance.PlaySFX(AudioManager.instance.levelUp);
+        AudioManager.instance.PlayLevelUPSFX(AudioManager.instance.levelUp);
     }
     public void ActivateUI()
     {

@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
             AudioManager.instance.PlaySFX(AudioManager.instance.playerDash);
             particle.Play();
         }
-        
     }
      
     IEnumerator Dash()
@@ -48,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         canDash = false;
         isDashing = true;
         anim.SetBool("Dash", isDashing);
-        Time.timeScale = 1.25f;
+        Time.timeScale = 0.65f;
         rb.velocity = new Vector2(movement.x * dashSpeed, movement.y * dashSpeed);
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;

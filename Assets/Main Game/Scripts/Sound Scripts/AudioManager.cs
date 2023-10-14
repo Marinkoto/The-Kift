@@ -6,11 +6,12 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     [Header("Audio Source")]
-    [SerializeField] AudioSource musicSource;
+    [SerializeField] public AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
     [SerializeField] AudioSource HitSFXSource;
+    [SerializeField] AudioSource LevelUPSFXSource;
     [Header("Audio Clips")]
-    public AudioClip backgroundMusic;
+    public AudioClip menuMusic;
     public AudioClip playerDash;
     public AudioClip enemyHit;
     public AudioClip enterPortal;
@@ -21,6 +22,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip levelUp;
     public AudioClip axeSwoosh;
     public AudioClip itemDestroy;
+    public AudioClip lootSound;
 
     private void Awake()
     {
@@ -37,7 +39,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(this);
-        musicSource.clip = backgroundMusic; 
+        musicSource.clip = menuMusic; 
         musicSource.Play();
     }
     public void PlaySFX(AudioClip _clip)
@@ -49,5 +51,10 @@ public class AudioManager : MonoBehaviour
     {
         HitSFXSource.clip = _clip;
         HitSFXSource.Play();
+    }
+    public void PlayLevelUPSFX(AudioClip _clip)
+    {
+        LevelUPSFXSource.clip = _clip;
+        LevelUPSFXSource.Play();
     }
 }

@@ -14,6 +14,7 @@ public class ClassesHandler : MonoBehaviour
     public Transform axeMasterClass;
     public static ClassesHandler instance;
     public static bool isClassSelected;
+    public GameObject[] bulletIcons;
     private void Awake()
     {
         Camera = GameObject.Find("Camera").GetComponent<CameraFollowSetup>();
@@ -32,6 +33,7 @@ public class ClassesHandler : MonoBehaviour
     public void TechClassEnable()
     { 
         isClassSelected = true;
+        bulletIcons[0].SetActive(true);
         classSelected = techClass.gameObject.transform;
         Cursor.visible = false;
         Camera.followTransform = classSelected.transform;
@@ -40,6 +42,7 @@ public class ClassesHandler : MonoBehaviour
     public void FishClassEnable()
     {
         isClassSelected = true;
+        bulletIcons[1].SetActive(true);
         classSelected = fishClass.gameObject.transform;
         Cursor.visible = false;
         Camera.followTransform = classSelected.transform;
@@ -48,6 +51,7 @@ public class ClassesHandler : MonoBehaviour
     public void MageClassEnable()
     {
         isClassSelected = true;
+        bulletIcons[2].SetActive(true);
         classSelected = mageClass.gameObject.transform;
         Cursor.visible = false;
         Camera.followTransform = classSelected.transform;

@@ -102,13 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b9f98418ed3e4f9306d609cc71399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 262.5
-  maxHealth: 250
-  boundHealth: 250
+  health: 300
+  maxHealth: 300
+  boundHealth: 300
   matWhite: {fileID: 2100000, guid: e3d9a28ca504a9c4284b986fd9faa7ff, type: 2}
   lootPrefab: {fileID: 6523960941471899613, guid: c0ab35c149c647348ae15dcd8ccb6b4e, type: 3}
   floatingTextPrefab: {fileID: 6719426965618277448, guid: a62bc3918eaf5834faae8e8f8f52191a, type: 3}
-  anim: {fileID: 6952244113880545654}
   canMove: 1
   particles: {fileID: 2915278639817589186, guid: 3771d1d951e5e39489f1c0186356d2a5, type: 3}
 --- !u!95 &6952244113880545654

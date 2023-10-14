@@ -12,7 +12,7 @@ public class DungeonController : MonoBehaviour
     }
     private void Update()
     {
-        if (dungeonNumber == 4)
+        if (dungeonNumber == 5)
         {
             int index = Random.Range(0, dungeons.Length);
             Instantiate(dungeons[index],transform.position,Quaternion.identity);
