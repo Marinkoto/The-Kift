@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5070176726210471475}
   - component: {fileID: 7425892501167993180}
+  - component: {fileID: -3385586849951882789}
   - component: {fileID: 7039602972521875552}
   - component: {fileID: 4568283471912504124}
   - component: {fileID: 4932385911237360252}
@@ -217,6 +218,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3385586849951882789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106407346817015616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da64bf18cc7e5d644b4c5077ca6f5de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 901039773043856064, guid: 659a008fdeb684a478c5d4aa82eb3ee6, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: 5f2752beeeeeae84cb44a3b3be82f3eb, type: 2}
 --- !u!114 &7039602972521875552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +254,10 @@ MonoBehaviour:
   - {fileID: 8863799412303668642}
   fireRate: 2.15
   bullet: {fileID: 496967885895071457, guid: ad963fd0f43122a4b93fd23ed8015643, type: 3}
-  rotatePoint: {fileID: 0}
+  canMove: 0
+  distanceToStop: 5
+  speed: 2
+  canShoot: 1
 --- !u!114 &4568283471912504124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,13 +270,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b9f98418ed3e4f9306d609cc71399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 515
   maxHealth: 515
   boundHealth: 515
   matWhite: {fileID: 2100000, guid: e3d9a28ca504a9c4284b986fd9faa7ff, type: 2}
-  lootPrefab: {fileID: 6523960941471899613, guid: c0ab35c149c647348ae15dcd8ccb6b4e, type: 3}
+  lootPrefab: {fileID: 6523960941471899613, guid: ebf528df75dbff546945525f10b895c0, type: 3}
   floatingTextPrefab: {fileID: 6719426965618277448, guid: a62bc3918eaf5834faae8e8f8f52191a, type: 3}
-  anim: {fileID: 4447131098296864609}
   canMove: 1
   particles: {fileID: 2915278639817589186, guid: 3b907778d3083184fabe4eb0d858b09d, type: 3}
 --- !u!50 &4932385911237360252

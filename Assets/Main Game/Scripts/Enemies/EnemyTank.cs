@@ -1,24 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 
 public class EnemyTank : MonoBehaviour
 {
     public Transform target;
     public float speed = 3f;
-    private Rigidbody2D rb;
     private int damage;
     public float deathTimer = 1f;
-    private Collider2D Collider;
+    private Collider2D coll;
     public ParticleSystem particles;
     private EnemyHealth enemyHealth;
+    private bool didCollide = false;
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        didCollide = false;
         damage = 50;
-        Collider = GetComponent<Collider2D>();
+        coll = GetComponent<Collider2D>();
         enemyHealth = GetComponent<EnemyHealth>();
-        Collider.enabled = false;
+        coll.enabled = false;
     }
 
     private void Update()
@@ -31,12 +33,22 @@ public class EnemyTank : MonoBehaviour
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= 10f && enemyHealth.canMove)
+        if (Vector2.Distance(target.position, transform.position) <= 7f)
         {
-            Invoke("Move", 1.25f);
+            if (didCollide)
+            {
+                coll.enabled = false;
+            }
+            else
+            {
+                coll.enabled = true;
+            }
         }
-
-       
+        if (Vector2.Distance(target.position, transform.position) <= 6f && enemyHealth.canMove 
+            && !LoadingScreeen.loadingScreenON && !PauseMenu.isPaused)
+        {
+            Invoke("Move", 1.86f);
+        }
     }
     private void GetTarget()
     {
@@ -44,7 +56,6 @@ public class EnemyTank : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player"))
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
-            Collider.enabled = true;
 
         }
     }
@@ -61,8 +72,9 @@ public class EnemyTank : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth player))
         {
+            didCollide = true;
             player.TakeDamage(damage);
-            Collider.enabled = false;
+            coll.enabled = false;
             Instantiate(particles, transform.position, Quaternion.identity);
             Destroy(gameObject,0.1f);
         }

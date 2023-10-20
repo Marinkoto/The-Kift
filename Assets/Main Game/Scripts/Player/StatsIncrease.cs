@@ -21,7 +21,7 @@ public class StatsIncrease : MonoBehaviour
         Mathf.RoundToInt(PlayerStats.instance.playerDamage+= PlayerStats.instance.playerDamage *= 0.075f);
         foreach (var enemy in enemiesHealth)
         {
-            enemy.maxHealth += enemy.maxHealth *= 0.05f;
+            enemy.maxHealth += enemy.maxHealth *= 0.075f;
         }
     }
     public void IncreaseHealth()
@@ -30,7 +30,7 @@ public class StatsIncrease : MonoBehaviour
         playerHealth.SetUIHealth(PlayerStats.instance.playerHealth, PlayerStats.instance.playerMaxHealth);
         foreach (var enemy in enemiesHealth)
         {
-            enemy.maxHealth += enemy.maxHealth *= 0.05f;
+            enemy.maxHealth += enemy.maxHealth *= 0.075f;
         }
 
     }
@@ -39,7 +39,7 @@ public class StatsIncrease : MonoBehaviour
         PlayerStats.instance.playerMoveSpeed+=PlayerStats.instance.playerMoveSpeed *= 0.1f;
         foreach (var enemy in enemiesHealth)
         {
-            enemy.maxHealth += enemy.maxHealth *= 0.05f;
+            enemy.maxHealth += enemy.maxHealth *= 0.075f;
         }
     }
     public void StartTime()

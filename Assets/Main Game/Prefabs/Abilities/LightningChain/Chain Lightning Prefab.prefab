@@ -4982,12 +4982,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   damage: 12.5
   chainLightningEffect: {fileID: 7844995071826808283}
   beenStruck: {fileID: 1652843135111778745, guid: 65c5986652c87d34aa39aa33eee0756c, type: 3}
   amountToChain: 1
-  particleSystem: {fileID: 5248516822068572008}
+  particles: {fileID: 0}
 --- !u!95 &1849416513291299949
 Animator:
   serializedVersion: 5

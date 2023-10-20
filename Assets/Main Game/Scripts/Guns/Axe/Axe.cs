@@ -37,7 +37,7 @@ public class Axe : MonoBehaviour
             AudioManager.instance.PlaySFX(AudioManager.instance.axeSwoosh);
             targetPos = UtilsClass.GetMouseWorldPosition();
         }
-        if (isClicked && playerMovement.canDash)
+        if (isClicked)
         {
             ThrowWeapon();
         }

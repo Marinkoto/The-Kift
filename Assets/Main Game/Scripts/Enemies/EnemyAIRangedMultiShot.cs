@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
 using System.Security.Cryptography;
+using TMPro;
+using System;
 
 public class EnemyAIRangedMultiShot : MonoBehaviour
 {
     public Transform target;
     public float speed = 3f;
     public static EnemyAIRanged instance; 
-    private Rigidbody2D rb;
     public float distanceToShoot = 5f;
     public float distanceToStop = 3f;
     public Transform[] firingPoints;
@@ -19,14 +20,11 @@ public class EnemyAIRangedMultiShot : MonoBehaviour
     public Transform rotatePoint;
     private EnemyHealth enemyHealth;
     private Collider2D coll;
-
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         enemyHealth = GetComponent<EnemyHealth>();
         coll = GetComponent<Collider2D>();
         coll.enabled = false;
-
     }
 
     private void Update()
@@ -39,20 +37,25 @@ public class EnemyAIRangedMultiShot : MonoBehaviour
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= 7f && enemyHealth.canMove )
+        if (Vector2.Distance(target.position, transform.position) <= 6f)
         {
             coll.enabled = true;
-            Invoke("Move", 1.25f);
+        }
+        if (Vector2.Distance(target.position, transform.position) <= 7f && enemyHealth.canMove )
+        {
+            Invoke("Move", 1.8f);
         }
         Stop();
         if (!target)
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= distanceToShoot)
+        if (Vector2.Distance(target.position, transform.position) <= distanceToShoot && 
+            !PauseMenu.isPaused && !LoadingScreeen.loadingScreenON)
         {
             Invoke("Shoot", 0.4f);
         }
+        
     }
     private void GetTarget()
     {
@@ -107,7 +110,7 @@ public class EnemyAIRangedMultiShot : MonoBehaviour
             return;
         }
         
-    }      
+    }
 }
     
 

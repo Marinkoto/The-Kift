@@ -78,9 +78,9 @@ public class PlayerStats : MonoBehaviour
         expBar.value = currentExp;
         expBar.maxValue = maxExp;
         expText.text = $"{currentExp}/{maxExp}";
-        if (playerHealth<=playerMaxHealth-50f)
+        if (playerHealth<=playerMaxHealth-10f)
         {
-            playerHealth = playerHealth + 20;
+            playerHealth = playerHealth + 10;
         }
         else
         {
@@ -97,4 +97,5 @@ public class PlayerStats : MonoBehaviour
         statsUI.SetActive(true);
         
     }
+    
 }

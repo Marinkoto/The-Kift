@@ -3178,6 +3178,7 @@ MonoBehaviour:
   sr: {fileID: 346563499}
   matWhite: {fileID: 2100000, guid: e3d9a28ca504a9c4284b986fd9faa7ff, type: 2}
   playerHealthBar: {fileID: 1589514601}
+  floatingTextPrefab: {fileID: 0}
 --- !u!50 &346563497
 Rigidbody2D:
   serializedVersion: 4
@@ -3754,7 +3755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e848dd83d7533489a27bffa0573ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMusic: {fileID: 8300000, guid: 015e4a20dcd35f747b1cb6e3c88e8fa6, type: 3}
+  currentMusic: {fileID: 8300000, guid: a61b5bf123dcdcf4d9ff7b9836b1d9e6, type: 3}
 --- !u!4 &626415981
 Transform:
   m_ObjectHideFlags: 0
@@ -4700,6 +4701,7 @@ MonoBehaviour:
   crosshair: {fileID: 1504309849}
   healthBar: {fileID: 1589514599}
   expBar: {fileID: 0}
+  bulletCounter: {fileID: 0}
 --- !u!224 &935800530
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13192,6 +13194,7 @@ GameObject:
   - component: {fileID: 1649163242}
   - component: {fileID: 1649163241}
   - component: {fileID: 1649163240}
+  - component: {fileID: 1649163243}
   m_Layer: 5
   m_Name: 'Quit Button '
   m_TagString: Untagged
@@ -13314,6 +13317,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649163238}
   m_CullTransparentMesh: 1
+--- !u!114 &1649163243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649163238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504067c1549edf14bacdeb0fad61a91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!1 &1690864968
 GameObject:
   m_ObjectHideFlags: 0
@@ -18351,6 +18367,7 @@ GameObject:
   - component: {fileID: 1780834606}
   - component: {fileID: 1780834605}
   - component: {fileID: 1780834604}
+  - component: {fileID: 1780834607}
   m_Layer: 5
   m_Name: Main Menu Button
   m_TagString: Untagged
@@ -18473,6 +18490,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780834602}
   m_CullTransparentMesh: 1
+--- !u!114 &1780834607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780834602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504067c1549edf14bacdeb0fad61a91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!1 &1826822454
 GameObject:
   m_ObjectHideFlags: 0
@@ -18923,6 +18953,7 @@ MonoBehaviour:
   fishClass: {fileID: 0}
   mageClass: {fileID: 346563492}
   axeMasterClass: {fileID: 0}
+  bulletIcons: []
 --- !u!4 &1944560324
 Transform:
   m_ObjectHideFlags: 0
@@ -19303,6 +19334,7 @@ GameObject:
   - component: {fileID: 2110424739}
   - component: {fileID: 2110424738}
   - component: {fileID: 2110424737}
+  - component: {fileID: 2110424740}
   m_Layer: 5
   m_Name: Resume Button
   m_TagString: Untagged
@@ -19449,6 +19481,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110424735}
   m_CullTransparentMesh: 1
+--- !u!114 &2110424740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110424735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504067c1549edf14bacdeb0fad61a91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!1 &2128220585
 GameObject:
   m_ObjectHideFlags: 0

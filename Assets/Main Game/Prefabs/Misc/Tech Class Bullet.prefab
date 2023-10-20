@@ -101,15 +101,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 9015131331035924541, guid: 8dd9289ab3701bf4a87ec007cf7e5624, type: 3}
-  itemDestroyEffect: {fileID: 0}
-  critChance: 25
   damagePopUp: {fileID: 6719426965618277449, guid: a62bc3918eaf5834faae8e8f8f52191a, type: 3}
-  crit: 1
-  critMultiplier: 1.5
   chainLightningEffect: {fileID: 7844995071826808283, guid: 687d6c15abae60748b5c01acf91faccf, type: 3}
   beenStruck: {fileID: 1652843135111778745, guid: 65c5986652c87d34aa39aa33eee0756c, type: 3}
   amountToChain: 1
   chainsLightning: 0
+  canBeDestroyedBySelf: 0
   classHitWallSound: {fileID: 8300000, guid: 3c443758f41bd0e4b9921e58a8dc3328, type: 3}
 --- !u!50 &-6384397567641730099
 Rigidbody2D:

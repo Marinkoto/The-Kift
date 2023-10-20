@@ -1,6 +1,8 @@
 
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Collections;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public Material matWhite;
     private Material matDef;
     public PlayerHealthBar playerHealthBar;
+    public GameObject floatingTextPrefab;
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -18,7 +21,11 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         AudioManager.instance.PlayHitSFX(AudioManager.instance.playerHit);
-        PlayerStats.instance.playerHealth -= damage;
+        if (!LoadingScreeen.loadingScreenON)
+        {
+            PlayerStats.instance.playerHealth -= damage;
+            ShowDamage(Mathf.RoundToInt(damage).ToString());
+        }
         CameraShake.instance.ShakeCamera(0.2f, 0.6f);
         sr.material = matWhite;
         if (!PlayerStats.instance)
@@ -41,5 +48,13 @@ public class PlayerHealth : MonoBehaviour
     void ResetMaterial()
     {
         sr.material = matDef;
+    }
+    void ShowDamage(string text)
+    {
+        if (floatingTextPrefab)
+        {
+            GameObject prefab = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity);
+            prefab.GetComponentInChildren<TextMeshPro>().text = text;
+        }
     }
 }

@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3303421395954220802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8264800944264846316}
+  - component: {fileID: 7777476307801422254}
+  m_Layer: 0
+  m_Name: FightPitRoom Ice Dungeon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8264800944264846316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303421395954220802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7777476307801422254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303421395954220802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927bb5e235c4af44faebb764ab6aab28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabPlacer: {fileID: 4341242197028722173, guid: 49d1de73f44f58940a43bf538b290285, type: 3}
+  enemyPlacementData:
+  - minQuantity: 1
+    maxQuantity: 2
+    enemyPrefab: {fileID: 5997392319185694075, guid: 633e69138018dc545ac49df8583433db, type: 3}
+    enemySize: {x: 1, y: 1}
+  - minQuantity: 0
+    maxQuantity: 1
+    enemyPrefab: {fileID: 3952152622149135432, guid: e3fe6a67c58c8f14a92e022cbf37716e, type: 3}
+    enemySize: {x: 1, y: 1}
+  - minQuantity: 1
+    maxQuantity: 3
+    enemyPrefab: {fileID: 9106407346817015616, guid: f40e559eab4c3bc43862f5592ea29a00, type: 3}
+    enemySize: {x: 1, y: 1}
+  itemData:
+  - minQuantity: 0
+    maxQuantity: 1
+    itemData: {fileID: 11400000, guid: 9a3cbd1b91ada784f928e93e4c9d3596, type: 2}
+  - minQuantity: 1
+    maxQuantity: 2
+    itemData: {fileID: 11400000, guid: ab1ebaa6e0171db49b91ff8d3fce0789, type: 2}
+  - minQuantity: 2
+    maxQuantity: 3
+    itemData: {fileID: 11400000, guid: 388c750881cd3a94bb8819bf373cfe64, type: 2}
+  - minQuantity: 2
+    maxQuantity: 4
+    itemData: {fileID: 11400000, guid: 44c04a0a13ed9714a85446fa71461b80, type: 2}

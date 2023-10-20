@@ -8,7 +8,6 @@ public class DamagePopUp : MonoBehaviour
     private float disappearTimer;
     private TextMeshPro text;
     private Color textColor;
-    public Bullet bullet;
     private void Start()
     {
         text = GetComponent<TextMeshPro>();

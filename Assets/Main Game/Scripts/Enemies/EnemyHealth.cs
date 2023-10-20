@@ -37,7 +37,8 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
             sr.material = matWhite;
             Instantiate(particles,transform.position,Quaternion.identity);
-            Invoke("ResetMaterial",.25f); 
+            Invoke("ResetMaterial",.25f);
+            GetComponent<LootBag>().SpawnLoot(transform.position);
             for (int i = 0; i < maxHealth/250; i++)
             {
                 Instantiate(lootPrefab, transform.position + new Vector3(Random.Range(0f,0.5f),Random.Range(0f,2f)), Quaternion.identity);

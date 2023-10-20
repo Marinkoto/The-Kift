@@ -40,7 +40,7 @@ public class ChainLightning : MonoBehaviour
                 amountToChain -= 1;
                 Instantiate(chainLightningEffect, collision.gameObject.transform.position, Quaternion.identity);
                 Instantiate(beenStruck, collision.gameObject.transform);
-                collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+                collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage * 0.75f);
                 anim.StopPlayback();
                 coll.enabled = false;
                 Destroy(gameObject, 0.4f);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public const bool isSet = false;
     public static AudioManager instance;
     [Header("Audio Source")]
     [SerializeField] public AudioSource musicSource;
@@ -22,24 +23,27 @@ public class AudioManager : MonoBehaviour
     public AudioClip levelUp;
     public AudioClip axeSwoosh;
     public AudioClip itemDestroy;
+    public AudioClip buttonClick;
     public AudioClip lootSound;
+    public AudioClip healthPotion;
 
     private void Awake()
     {
-        instance = this;
-        if (instance!=null && instance!=this)
+        if (instance == null)
         {
-            Destroy(this);
+            instance = this;
         }
         else
         {
-            instance = this;
+            DestroyObject(gameObject);
         }
     }
     private void Start()
     {
-        DontDestroyOnLoad(this);
-        musicSource.clip = menuMusic; 
+        if (!isSet)
+        {
+            DontDestroyOnLoad(this);
+        }
         musicSource.Play();
     }
     public void PlaySFX(AudioClip _clip)
@@ -57,4 +61,5 @@ public class AudioManager : MonoBehaviour
         LevelUPSFXSource.clip = _clip;
         LevelUPSFXSource.Play();
     }
+
 }

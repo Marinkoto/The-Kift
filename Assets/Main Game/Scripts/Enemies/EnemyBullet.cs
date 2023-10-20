@@ -25,20 +25,21 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
         {
-            Instantiate(ps, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth player))
         {
-            Instantiate(ps, transform.position, Quaternion.identity);
             player.TakeDamage(damage);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Bullet")
         {
-            Instantiate(ps, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
-   
+    private void OnDestroy()
+    {
+        Instantiate(ps, transform.position, Quaternion.identity);
+    }
+
 }

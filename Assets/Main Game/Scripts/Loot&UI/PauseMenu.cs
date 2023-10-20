@@ -7,13 +7,16 @@ public class PauseMenu : MonoBehaviour
     public GameObject crosshair;
     public GameObject healthBar;
     public GameObject expBar;
+    public GameObject bulletCounter;
 
     public static bool isPaused;
     public static bool canPause;
+
     void Start()
     {
         pauseMenu.SetActive(false);
         isPaused = false;
+        canPause = true;
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class PauseMenu : MonoBehaviour
                 EnableCrosshair();
                 EnableHealthBar();
                 EnableEXPBar();
+                bulletCounter.SetActive(true);
             }
             else
             {
@@ -34,6 +38,7 @@ public class PauseMenu : MonoBehaviour
                 DisableCrosshair();
                 DisableHealthBar();
                 DisableEXPBar();
+                bulletCounter.SetActive(false);
             }
         }
     }
@@ -78,10 +83,12 @@ public class PauseMenu : MonoBehaviour
     }
     public void DisableEXPBar()
     {
-        expBar.SetActive(false);
+        if(expBar)
+            expBar.SetActive(false);
     }
     public void EnableEXPBar()
     {
-        expBar.SetActive(true);
+        if (expBar)
+            expBar.SetActive(true);
     }
 }

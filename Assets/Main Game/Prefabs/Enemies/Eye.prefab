@@ -73,13 +73,14 @@ GameObject:
   m_Component:
   - component: {fileID: 8080241854155918337}
   - component: {fileID: 8080241854155918338}
+  - component: {fileID: -716251364340539888}
   - component: {fileID: 8080241854155918339}
   - component: {fileID: 6893704906153343704}
   - component: {fileID: 5951679619106105693}
   - component: {fileID: 5433408777887409759}
   - component: {fileID: 4629544773234337341}
   - component: {fileID: -5130262143738439337}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,6 +155,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-716251364340539888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8080241854155918349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da64bf18cc7e5d644b4c5077ca6f5de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 901039773043856064, guid: 659a008fdeb684a478c5d4aa82eb3ee6, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: 5f2752beeeeeae84cb44a3b3be82f3eb, type: 2}
 --- !u!95 &8080241854155918339
 Animator:
   serializedVersion: 5

@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class Bullet : MonoBehaviour
 {
     public GameObject hitEffect;
-    public GameObject itemDestroyEffect;
 
     public TextMeshPro damagePopUp;
 
@@ -16,19 +15,26 @@ public class Bullet : MonoBehaviour
     public GameObject beenStruck;
     public int amountToChain;
     public bool chainsLightning = false;
-
+    public bool canBeDestroyedBySelf;
     public AudioClip classHitWallSound;
     private void Update()
     {
           Destroy(gameObject,6f);
     }
+    //for enemies which have colliders that are triggers
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Bullet") && canBeDestroyedBySelf)
+        {
+            Destroy(gameObject);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+            AudioManager.instance.PlaySFX(classHitWallSound);
+        }
         if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
         {
             AudioManager.instance.PlayHitSFX(AudioManager.instance.enemyHit);
             FindObjectOfType<HitStop>().HitStopEffect(0.02f);
-            CameraShake.instance.ShakeCamera(.2f, 0.5f);
+            ShakeCamera();
             enemy.TakeDamage(PlayerStats.instance.playerDamage);
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
@@ -38,28 +44,33 @@ public class Bullet : MonoBehaviour
             AudioManager.instance.PlaySFX(AudioManager.instance.shootLightning);
             AudioManager.instance.PlayHitSFX(AudioManager.instance.shootLightning);
             FindObjectOfType<HitStop>().HitStopEffect(0.031f);
-            CameraShake.instance.ShakeCamera(.21f, 0.5f);
+            ShakeCamera();
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Instantiate(beenStruck, collision.transform);
-            chainLightningEffect.GetComponent<ChainLightning>().damage = PlayerStats.instance.playerDamage;
             chainLightningEffect.GetComponent<ChainLightning>().amountToChain = amountToChain;
             Instantiate(chainLightningEffect, collision.transform.position, Quaternion.identity);
             Destroy(gameObject);
 
         }
     }
+    //for enemies which have normal colliders
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Bullet") && canBeDestroyedBySelf)
+        {
+            Destroy(gameObject);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+            AudioManager.instance.PlaySFX(classHitWallSound);
+        }
         //lightning chain 
         if (chainsLightning && collision.gameObject.tag == "Enemy")
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.shootLightning);
             AudioManager.instance.PlayHitSFX(AudioManager.instance.shootLightning);
             FindObjectOfType<HitStop>().HitStopEffect(0.031f);
-            CameraShake.instance.ShakeCamera(.2f, 0.5f);
+            ShakeCamera();
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Instantiate(beenStruck, collision.transform);
-            chainLightningEffect.GetComponent<ChainLightning>().damage = PlayerStats.instance.playerDamage;
             chainLightningEffect.GetComponent<ChainLightning>().amountToChain = amountToChain;
             Instantiate(chainLightningEffect, collision.transform.position, Quaternion.identity);
             Destroy(gameObject);
@@ -90,7 +101,7 @@ public class Bullet : MonoBehaviour
         {
             AudioManager.instance.PlayHitSFX(AudioManager.instance.enemyHit);
             FindObjectOfType<HitStop>().HitStopEffect(0.02f);
-            CameraShake.instance.ShakeCamera(.2f, 0.5f);
+            ShakeCamera();
             enemy.TakeDamage(PlayerStats.instance.playerDamage);
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
@@ -99,9 +110,14 @@ public class Bullet : MonoBehaviour
         {
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
-        }
-        
+        } 
     }
-    
+    public void ShakeCamera()
+    {
+        if (!PauseMenu.isPaused && PauseMenu.canPause)
+        {
+            CameraShake.instance.ShakeCamera(.21f, 0.5f);
+        }
+    }
    
 }
