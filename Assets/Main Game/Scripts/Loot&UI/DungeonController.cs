@@ -16,7 +16,7 @@ public class DungeonController : MonoBehaviour
         {
             int index = Random.Range(0, dungeons.Length);
             Instantiate(dungeons[index],transform.position,Quaternion.identity);
-            dungeonNumber ++;
+            dungeonNumber = 1;
             Destroy(gameObject);
         }
     }

@@ -11,6 +11,7 @@ public class EnterGame : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene(index);
+            AudioManager.instance.PlaySFX(AudioManager.instance.enterPortal);
         }
     }
 }

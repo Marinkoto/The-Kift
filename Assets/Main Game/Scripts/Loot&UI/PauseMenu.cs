@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,14 +9,14 @@ public class PauseMenu : MonoBehaviour
     public GameObject healthBar;
     public GameObject expBar;
     public GameObject bulletCounter;
-
+    public TextMeshProUGUI statText;
     public static bool isPaused;
     public static bool canPause;
 
     void Start()
     {
-        pauseMenu.SetActive(false);
         isPaused = false;
+        pauseMenu.SetActive(false);
         canPause = true;
     }
 
@@ -48,18 +49,22 @@ public class PauseMenu : MonoBehaviour
     }
     public void PauseGame()
     {
+        PlayerStats.instance.StatsTextSet(statText);
         pauseMenu.SetActive(true);
+        statText.gameObject.SetActive(true);
         Time.timeScale = 0.0f;
         Cursor.visible = true;
         isPaused = true;
+
     }
-    public void MainMenuEntry(int indexOfScene)
+    public void LoadScene(int indexOfScene)
     {
         SceneManager.LoadScene(indexOfScene);
         Time.timeScale = 1.0f;  
     }
     public void ResumeGame()
     {
+        statText.gameObject.SetActive(false);
         pauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
         Cursor.visible = false;

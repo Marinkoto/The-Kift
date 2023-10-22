@@ -277,7 +277,7 @@ MonoBehaviour:
   lootPrefab: {fileID: 6523960941471899613, guid: ebf528df75dbff546945525f10b895c0, type: 3}
   floatingTextPrefab: {fileID: 6719426965618277448, guid: a62bc3918eaf5834faae8e8f8f52191a, type: 3}
   canMove: 1
-  particles: {fileID: 2915278639817589186, guid: 3b907778d3083184fabe4eb0d858b09d, type: 3}
+  particles: {fileID: 7743674265032000945, guid: 2a573d961b20d3b4ea624b17e3c5e5a6, type: 3}
 --- !u!50 &4932385911237360252
 Rigidbody2D:
   serializedVersion: 4

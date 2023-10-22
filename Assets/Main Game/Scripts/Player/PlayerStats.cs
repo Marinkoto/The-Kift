@@ -13,13 +13,21 @@ public class PlayerStats : MonoBehaviour
     public float playerMaxHealth;
     public float playerMoveSpeed;
     public float currentExp;
+    public int bulletAmount;
+    public int maxClipSize;
+    public bool canDash;
+    public bool hasAxe;
+    public float reloadTime;
+    public int currentClip;
+    public float dashCooldown = 1f;
     public float maxExp;
     public float level = 1;
-    public GameObject statsUI;
+    public GameObject[] statsUI;
     public Transform startPos;
     public Slider expBar;
     public TextMeshProUGUI expText;
     public TextMeshProUGUI levelText;
+    
     public void SetStartPosition()
     {
         Invoke("StartPosition", 1f);
@@ -40,17 +48,19 @@ public class PlayerStats : MonoBehaviour
     }
     private void Start()
     {
-        levelText.text = $"LEVEL {level}";
-        expText.text = $"{currentExp}/{maxExp}";
+        SetExpBar();
     }
     private void Update()
     {
         startPos = GameObject.Find("Start Pos").gameObject.transform;
+        if (currentExp >= maxExp)
+        {
+            LevelUp();
+        }
     }
     private void OnEnable()
     {
         ExperienceManager.instance.OnExperienceChange += HandleExpChange;
-        currentExp += currentExp;
     }
     private void OnDisable()
     {
@@ -59,11 +69,9 @@ public class PlayerStats : MonoBehaviour
     private void HandleExpChange(int newExp)
     {
         currentExp += newExp;
-        expBar.value = currentExp;
-        expBar.maxValue = maxExp;
-        expText.text = $"{currentExp}/{maxExp}";
-        if (currentExp>=maxExp)
-        {
+        SetExpBar();
+        if (currentExp >= maxExp)
+        {   
             LevelUp();
         }
     }
@@ -74,10 +82,7 @@ public class PlayerStats : MonoBehaviour
         level++;
         maxExp += 200f;
         currentExp = 0f;
-        levelText.text = $"LEVEL {level}";
-        expBar.value = currentExp;
-        expBar.maxValue = maxExp;
-        expText.text = $"{currentExp}/{maxExp}";
+        SetExpBar();
         if (playerHealth<=playerMaxHealth-10f)
         {
             playerHealth = playerHealth + 10;
@@ -90,12 +95,25 @@ public class PlayerStats : MonoBehaviour
     }
     public void ActivateUI()
     {
-        if (!statsUI)
-        {
-            return;
-        }
-        statsUI.SetActive(true);
+        int randomUI = Random.Range(0, statsUI.Length);
+        statsUI[randomUI].SetActive(true);
         
     }
-    
+    public void StatsTextSet(TextMeshProUGUI statText)
+    {
+        statText.text = $"Max HP: {playerMaxHealth}\nDamage: {playerDamage:f2}\n" +
+            $"Movement Speed: {playerMoveSpeed:f2}\nBullets Shot: {bulletAmount}\nMax Bullets: {maxClipSize}\nDash Cooldown: {dashCooldown:f2}\n" +
+            $"Reload Cooldown: {reloadTime:f2}";
+    }
+    public void SetExpBar()
+    {
+        levelText.text = $"LEVEL {level}";
+        expBar.value = currentExp;
+        expBar.maxValue = maxExp;
+        expText.text = $"{currentExp}/{maxExp}";
+    }
+    public void SetBulletCounter(TextMeshProUGUI bulletCounter)
+    {
+        bulletCounter.text = $"{currentClip}/{maxClipSize}";
+    }
 }

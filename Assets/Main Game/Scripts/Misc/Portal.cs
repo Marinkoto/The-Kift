@@ -13,6 +13,7 @@ public class Portal : MonoBehaviour
             Cursor.visible = true;
             AudioManager.instance.PlaySFX(AudioManager.instance.enterPortal);
             StartCoroutine(StopTime());
+            PlayerStats.instance.currentClip = PlayerStats.instance.maxClipSize;
         }
     }
     public void SetPosition()

@@ -10,7 +10,7 @@ public class Axe : MonoBehaviour
     private bool isClicked;
     private bool isDamaged;
 
-    [SerializeField] private float moveSpeed;
+    [SerializeField] public float moveSpeed;
     private Vector3 targetPos;
 
     private Transform player;

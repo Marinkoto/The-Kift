@@ -8,19 +8,18 @@ public class EnemyTank : MonoBehaviour
 {
     public Transform target;
     public float speed = 3f;
-    private int damage;
-    public float deathTimer = 1f;
+    public int damage;
     private Collider2D coll;
     public ParticleSystem particles;
     private EnemyHealth enemyHealth;
-    private bool didCollide = false;
+    public bool selfDestroyed;
+    bool canDamage = true;
     private void Start()
     {
-        didCollide = false;
-        damage = 50;
         coll = GetComponent<Collider2D>();
         enemyHealth = GetComponent<EnemyHealth>();
         coll.enabled = false;
+        canDamage = true;
     }
 
     private void Update()
@@ -35,14 +34,7 @@ public class EnemyTank : MonoBehaviour
         }
         if (Vector2.Distance(target.position, transform.position) <= 7f)
         {
-            if (didCollide)
-            {
-                coll.enabled = false;
-            }
-            else
-            {
-                coll.enabled = true;
-            }
+            coll.enabled = true;
         }
         if (Vector2.Distance(target.position, transform.position) <= 6f && enemyHealth.canMove 
             && !LoadingScreeen.loadingScreenON && !PauseMenu.isPaused)
@@ -70,13 +62,30 @@ public class EnemyTank : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth player))
+        if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth player) && selfDestroyed)
         {
-            didCollide = true;
             player.TakeDamage(damage);
             coll.enabled = false;
             Instantiate(particles, transform.position, Quaternion.identity);
-            Destroy(gameObject,0.1f);
+            Destroy(gameObject);
+        }
+        else if(!selfDestroyed)
+        {
+            if (canDamage)
+            {
+                player.TakeDamage(damage);
+                StartCoroutine(DamageBool());
+            }
+            Instantiate(particles, transform.position, Quaternion.identity);
         }
     }
+    IEnumerator DamageBool()
+    {
+        coll.enabled = false;
+        canDamage = false;
+        yield return new WaitForSeconds(0.75f);
+        canDamage = true;
+        coll.enabled = true;
+    }
+
 }

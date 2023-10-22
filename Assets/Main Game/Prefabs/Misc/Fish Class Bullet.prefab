@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8606436385413160671}
   - component: {fileID: -6384397567641730099}
   - component: {fileID: -224471071479762916}
-  - component: {fileID: 5417255043689521309}
+  - component: {fileID: -1831431999218295371}
   - component: {fileID: 6959801333070195673}
   m_Layer: 0
   m_Name: Fish Class Bullet
@@ -108,7 +108,7 @@ MonoBehaviour:
   beenStruck: {fileID: 1652843135111778745, guid: 65c5986652c87d34aa39aa33eee0756c, type: 3}
   amountToChain: 1
   chainsLightning: 0
-  canBeDestroyedBySelf: 1
+  canBeDestroyedBySelf: 0
   classHitWallSound: {fileID: 8300000, guid: 3c443758f41bd0e4b9921e58a8dc3328, type: 3}
 --- !u!95 &8606436385413160671
 Animator:
@@ -260,7 +260,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!58 &5417255043689521309
+--- !u!58 &-1831431999218295371
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,6 +289,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04451874, y: 0}
+  m_Offset: {x: -0.02735281, y: -0.040053815}
   serializedVersion: 2
-  m_Radius: 0.4099057
+  m_Radius: 0.1638613

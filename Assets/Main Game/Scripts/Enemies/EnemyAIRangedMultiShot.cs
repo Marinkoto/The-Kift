@@ -37,11 +37,11 @@ public class EnemyAIRangedMultiShot : MonoBehaviour
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= 6f)
+        if (Vector2.Distance(target.position, transform.position) <= 7f)
         {
             coll.enabled = true;
         }
-        if (Vector2.Distance(target.position, transform.position) <= 7f && enemyHealth.canMove )
+        if (Vector2.Distance(target.position, transform.position) <= 6f && enemyHealth.canMove )
         {
             Invoke("Move", 1.8f);
         }

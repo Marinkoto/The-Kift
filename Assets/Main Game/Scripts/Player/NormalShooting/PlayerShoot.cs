@@ -12,15 +12,13 @@ public class PlayerShoot : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
-    public int currentClip, maxClipSize = 10, currentAmmo;
-    public float reloadTime;
+    public int currentAmmo;
     public float classReloadTime;
     public GameObject slider;
     bool canReload = true;
     public bool canShoot = true;
     public UnityEvent<float> OnReloading;
     public AudioClip classFireSound;
-    public int bulletAmount;
     public float spread;
     public TextMeshProUGUI bulletCounter;
     private void Awake()
@@ -37,19 +35,19 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Start()
     {
-        OnReloading?.Invoke(reloadTime);
-        bulletCounter.text = $"{currentClip}/{maxClipSize}";
+        OnReloading?.Invoke(PlayerStats.instance.reloadTime);
+        PlayerStats.instance.SetBulletCounter(bulletCounter);
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && canReload && maxClipSize!=currentClip && !PauseMenu.isPaused)
+        if (Input.GetKeyDown(KeyCode.R) && canReload && PlayerStats.instance.maxClipSize != PlayerStats.instance.currentClip && !PauseMenu.isPaused)
         {
             slider.gameObject.SetActive(true);
             canShoot = false;
             StartCoroutine(Reload());
 
         }
-        if (currentClip == 0 && canReload)
+        if (PlayerStats.instance.currentClip == 0 && canReload)
         {
             canShoot = false;
             slider.gameObject.SetActive(true);
@@ -62,11 +60,11 @@ public class PlayerShoot : MonoBehaviour
         if (canShoot==false)
         {
             canReload = false;
-            reloadTime -= Time.deltaTime;
-            OnReloading?.Invoke(reloadTime);
-            if (reloadTime <=0 && canReload==false)
+            PlayerStats.instance.reloadTime -= Time.deltaTime;
+            OnReloading?.Invoke(PlayerStats.instance.reloadTime);
+            if (PlayerStats.instance.reloadTime <= 0 && canReload==false)
             {
-                reloadTime = classReloadTime;
+                PlayerStats.instance.reloadTime = classReloadTime;
                 canShoot = true;
             }
         }
@@ -77,9 +75,9 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Shoot()
     {
-        for (int i = 0; i < bulletAmount; i++)
+        for (int i = 0; i < PlayerStats.instance.bulletAmount; i++)
         {
-            if (currentClip > 0)
+            if (PlayerStats.instance.currentClip > 0)
             {
                 GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 AudioManager.instance.PlaySFX(classFireSound);
@@ -87,8 +85,8 @@ public class PlayerShoot : MonoBehaviour
                 Vector2 dir = firePoint.transform.right;
                 Vector2 pdir = Vector2.Perpendicular(dir) * Random.Range(-spread, spread);
                 rb.AddForce((dir+pdir)*bulletForce, ForceMode2D.Impulse);
-                currentClip--;
-                bulletCounter.text = $"{currentClip}/{maxClipSize}";
+                PlayerStats.instance.currentClip--;
+                PlayerStats.instance.SetBulletCounter(bulletCounter);
             }
         }
     }
@@ -96,14 +94,14 @@ public class PlayerShoot : MonoBehaviour
     {
         canShoot = false;
         canReload = false;
-        yield return new WaitForSeconds(reloadTime);
-        int reloadAmount = maxClipSize - currentClip;
+        yield return new WaitForSeconds(PlayerStats.instance.reloadTime);
+        int reloadAmount = PlayerStats.instance.maxClipSize - PlayerStats.instance.currentClip;
         reloadAmount = (currentAmmo - reloadAmount) >= 0 ? reloadAmount : 0;
-        currentClip += reloadAmount;
+        PlayerStats.instance.currentClip += reloadAmount;
         canReload = true;
         canShoot = true;
         slider.gameObject.SetActive(false);
-        bulletCounter.text = $"{currentClip}/{maxClipSize}";
+        PlayerStats.instance.SetBulletCounter(bulletCounter);
     }
     
 }

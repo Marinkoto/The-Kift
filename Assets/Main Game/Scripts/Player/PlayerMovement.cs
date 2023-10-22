@@ -13,9 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float dashDuration = 1f;
     public float dashSpeed = 10f;
-    public float dashCooldown = 1f;
     private bool isDashing;
-    [SerializeField] public bool canDash = true;
     public Animator anim;
     public ParticleSystem particle;
     public Transform startPos;
@@ -34,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
         }
-        if (Input.GetMouseButtonDown(1) && canDash && !PauseMenu.isPaused)
+        if (Input.GetMouseButtonDown(1) && PlayerStats.instance.canDash && !PauseMenu.isPaused)
         {
             StartCoroutine(Dash());
             AudioManager.instance.PlaySFX(AudioManager.instance.playerDash);
@@ -44,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
      
     IEnumerator Dash()
     {
-        canDash = false;
+        PlayerStats.instance.canDash = false;
         isDashing = true;
         anim.SetBool("Dash", isDashing);
         Time.timeScale = 0.65f;
@@ -53,8 +51,8 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         Time.timeScale = 1f;
         anim.SetBool("Dash", isDashing);
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
+        yield return new WaitForSeconds(PlayerStats.instance.dashCooldown);
+        PlayerStats.instance.canDash = true;
         
     }
     private void Move()
