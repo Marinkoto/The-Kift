@@ -43,7 +43,7 @@ public class EnemyAIRangedMultiShot : MonoBehaviour
         }
         if (Vector2.Distance(target.position, transform.position) <= 6f && enemyHealth.canMove )
         {
-            Invoke("Move", 1.8f);
+            Invoke("Move", 3f);
         }
         Stop();
         if (!target)
@@ -53,7 +53,7 @@ public class EnemyAIRangedMultiShot : MonoBehaviour
         if (Vector2.Distance(target.position, transform.position) <= distanceToShoot && 
             !PauseMenu.isPaused && !LoadingScreeen.loadingScreenON)
         {
-            Invoke("Shoot", 0.4f);
+            Invoke("Shoot", 1f);
         }
         
     }

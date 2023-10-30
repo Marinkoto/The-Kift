@@ -16,10 +16,15 @@ public class PlayerStats : MonoBehaviour
     public int bulletAmount;
     public int maxClipSize;
     public bool canDash;
+    [Range(1f,5f)]
+    public float armor;
     public bool hasAxe;
     public float reloadTime;
     public int currentClip;
+    public int currentAmmo;
     public float dashCooldown = 1f;
+    public int pickUpRange;
+    public float expMultiplier;
     public float maxExp;
     public float level = 1;
     public GameObject[] statsUI;
@@ -36,6 +41,7 @@ public class PlayerStats : MonoBehaviour
     {
         transform.position = startPos.position;
     }
+    
     private void Awake()
     {
         instance = this;
@@ -52,11 +58,12 @@ public class PlayerStats : MonoBehaviour
     }
     private void Update()
     {
+        
         startPos = GameObject.Find("Start Pos").gameObject.transform;
         if (currentExp >= maxExp)
         {
             LevelUp();
-        }
+        }  
     }
     private void OnEnable()
     {
@@ -97,13 +104,12 @@ public class PlayerStats : MonoBehaviour
     {
         int randomUI = Random.Range(0, statsUI.Length);
         statsUI[randomUI].SetActive(true);
-        
     }
     public void StatsTextSet(TextMeshProUGUI statText)
     {
         statText.text = $"Max HP: {playerMaxHealth}\nDamage: {playerDamage:f2}\n" +
             $"Movement Speed: {playerMoveSpeed:f2}\nBullets Shot: {bulletAmount}\nMax Bullets: {maxClipSize}\nDash Cooldown: {dashCooldown:f2}\n" +
-            $"Reload Cooldown: {reloadTime:f2}";
+            $"Reload Cooldown: {reloadTime:f2}\n Armor: {armor}";
     }
     public void SetExpBar()
     {

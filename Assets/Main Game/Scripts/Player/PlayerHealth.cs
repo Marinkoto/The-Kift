@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         AudioManager.instance.PlayHitSFX(AudioManager.instance.playerHit);
         if (!LoadingScreeen.loadingScreenON)
         {
-            PlayerStats.instance.playerHealth -= damage;
+            PlayerStats.instance.playerHealth -= damage / PlayerStats.instance.armor;
             ShowDamage(Mathf.RoundToInt(damage).ToString());
         }
         CameraShake.instance.ShakeCamera(0.2f, 0.6f);

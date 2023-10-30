@@ -41,7 +41,7 @@ public class EnemyAiTurret : MonoBehaviour
         }
         if (Vector2.Distance(target.position, transform.position) <= 7f && enemyHealth.canMove && canMove)
         {
-            Invoke("Move", 1.25f);
+            Invoke("Move", 2f);
         }
         Stop();
         if (!target)
@@ -51,7 +51,7 @@ public class EnemyAiTurret : MonoBehaviour
         if (Vector2.Distance(target.position, transform.position) <= distanceToShoot && canShoot 
             && !PauseMenu.isPaused && !LoadingScreeen.loadingScreenON)
         {
-            Shoot();
+            Invoke("Shoot",1f);
         }
     }
     private void GetTarget()

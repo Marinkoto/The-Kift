@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 4
+  speed: 2.5
   distanceToShoot: 6
   distanceToStop: 5
   firingPoint: {fileID: 130010459666100613}

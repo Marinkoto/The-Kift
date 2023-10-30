@@ -39,7 +39,7 @@ public class EnemyAIRanged : MonoBehaviour
         if (Vector2.Distance(target.position, transform.position) <= 7f && enemyHealth.canMove )
         {
             coll.enabled = true;
-            Invoke("Move", 1.25f);
+            Invoke("Move", 3);
         }
         Stop();
         if (!target)
@@ -49,7 +49,7 @@ public class EnemyAIRanged : MonoBehaviour
         if (Vector2.Distance(target.position, transform.position) <= distanceToShoot 
             && !PauseMenu.isPaused && !LoadingScreeen.loadingScreenON)
         {
-            Invoke("Shoot", 0.4f);
+            Invoke("Shoot", 1f);
         }
     }
     private void GetTarget()

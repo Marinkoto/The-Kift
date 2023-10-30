@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootSprite: {fileID: -71474306, guid: 64989dc874f8b7a4f8c97712a9b8e6ff, type: 3}
   name: Potion
-  dropChance: 6
+  dropChance: 8

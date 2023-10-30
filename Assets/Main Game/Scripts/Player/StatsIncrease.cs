@@ -45,7 +45,14 @@ public class StatsIncrease : MonoBehaviour
     }
     public void AddHp()
     {
-        Mathf.RoundToInt(PlayerStats.instance.playerHealth += PlayerStats.instance.playerHealth + 20);
+        if (PlayerStats.instance.playerHealth <= PlayerStats.instance.playerMaxHealth-50)
+        {
+            Mathf.RoundToInt(PlayerStats.instance.playerHealth += PlayerStats.instance.playerHealth + 50);
+        }
+        else
+        {
+            Mathf.RoundToInt(PlayerStats.instance.playerHealth = PlayerStats.instance.playerMaxHealth);
+        }
         playerHealth.SetUIHealth(PlayerStats.instance.playerHealth, PlayerStats.instance.playerMaxHealth);
         foreach (var enemy in enemiesHealth)
         {
@@ -88,6 +95,10 @@ public class StatsIncrease : MonoBehaviour
     }
     public void DecreaseReloadTime()
     {
+        if (PlayerStats.instance.hasAxe)
+        {
+            Mathf.RoundToInt(PlayerStats.instance.playerDamage += PlayerStats.instance.playerDamage *= 0.075f);
+        }
         playerShoot = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
         playerShoot.classReloadTime = playerShoot.classReloadTime - 0.05f;
         PlayerStats.instance.reloadTime = PlayerStats.instance.reloadTime - 0.05f;
@@ -104,6 +115,7 @@ public class StatsIncrease : MonoBehaviour
         }
         PlayerStats.instance.currentClip = PlayerStats.instance.currentClip + 1;
         PlayerStats.instance.maxClipSize = PlayerStats.instance.maxClipSize + 1;
+        PlayerStats.instance.currentAmmo = PlayerStats.instance.currentAmmo + 1;
         foreach (var enemy in enemiesHealth)
         {
             enemy.maxHealth += enemy.maxHealth *= 0.075f;
@@ -113,6 +125,35 @@ public class StatsIncrease : MonoBehaviour
     {
         PlayerStats.instance.currentExp = PlayerStats.instance.currentExp + 50;
         PlayerStats.instance.SetExpBar();
+        foreach (var enemy in enemiesHealth)
+        {
+            enemy.maxHealth += enemy.maxHealth *= 0.075f;
+        }
+    }
+    public void IncreasePickUpRange()
+    {
+        PlayerStats.instance.pickUpRange = PlayerStats.instance.pickUpRange + 1;
+        foreach (var enemy in enemiesHealth)
+        {
+            enemy.maxHealth += enemy.maxHealth *= 0.075f;
+        }
+    }
+    public void IncreaseEXPMultiplier()
+    {
+        PlayerStats.instance.expMultiplier = PlayerStats.instance.expMultiplier * 0.25f;
+        foreach (var enemy in enemiesHealth)
+        {
+            enemy.maxHealth += enemy.maxHealth *= 0.075f;
+        }
+    }
+    public void IncreaseArmor()
+    {
+        PlayerStats.instance.armor = PlayerStats.instance.armor + 0.25f;
+        if (PlayerStats.instance.armor>=5f)
+        {
+            Mathf.RoundToInt(PlayerStats.instance.playerMaxHealth += PlayerStats.instance.playerMaxHealth *= 0.1f);
+            playerHealth.SetUIHealth(PlayerStats.instance.playerHealth, PlayerStats.instance.playerMaxHealth);
+        }
         foreach (var enemy in enemiesHealth)
         {
             enemy.maxHealth += enemy.maxHealth *= 0.075f;

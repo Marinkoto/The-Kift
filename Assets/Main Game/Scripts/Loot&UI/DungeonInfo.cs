@@ -11,19 +11,18 @@ public class DungeonInfo : MonoBehaviour
     private void Start()
     {
         dungeonCounter = GetComponentInChildren<TextMeshProUGUI>();
-        dungeonController = GameObject.FindGameObjectWithTag("PCG").GetComponent<DungeonController>();
     }
     private void Update()
     {
         SetInfo();
-        if(dungeonController.dungeonNumber == 5)
+        if(dungeonController.dungeonNumber >= 5)
         {
-            SetInfo();
             dungeonLevel++;
         }
     }
     private void SetInfo()
     {
+        dungeonController = GameObject.FindGameObjectWithTag("PCG").GetComponent<DungeonController>();
         dungeonCounter.text = $"{dungeonLevel}/{dungeonController.dungeonNumber}";
     }
 }

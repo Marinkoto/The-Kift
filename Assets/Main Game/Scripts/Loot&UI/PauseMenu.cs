@@ -40,6 +40,7 @@ public class PauseMenu : MonoBehaviour
                 DisableHealthBar();
                 DisableEXPBar();
                 bulletCounter.SetActive(false);
+                
             }
         }
     }

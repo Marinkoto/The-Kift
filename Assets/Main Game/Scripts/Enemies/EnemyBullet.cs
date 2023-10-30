@@ -36,6 +36,18 @@ public class EnemyBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.TryGetComponent<Item>(out Item item))
+        {
+            if (!item.nonDestructible)
+            {
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
     }
     private void OnDestroy()
     {

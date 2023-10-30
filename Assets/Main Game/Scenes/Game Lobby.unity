@@ -180,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 944
+  m_SortingOrder: 800
   m_Sprite: {fileID: -1910646153, guid: 7f26f7a530375024b8980374ddc54aa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3561,10 +3561,13 @@ MonoBehaviour:
   bulletAmount: 0
   maxClipSize: 0
   canDash: 1
+  armor: 0
   hasAxe: 0
   reloadTime: 0
   currentClip: 0
   dashCooldown: 1
+  pickUpRange: 0
+  expMultiplier: 0
   maxExp: 100000
   level: 1
   statsUI: []
@@ -3670,7 +3673,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1398
+  m_SortingOrder: 700
   m_Sprite: {fileID: -374420001, guid: 7f26f7a530375024b8980374ddc54aa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3954,7 +3957,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 935800529}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: MainMenuEntry
+        m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4665,7 +4668,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 944
+  m_SortingOrder: 800
   m_Sprite: {fileID: -1910646153, guid: 7f26f7a530375024b8980374ddc54aa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13957,7 +13960,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 313
+  m_SortingOrder: 845
   m_TargetDisplay: 0
 --- !u!224 &1589514603
 RectTransform:
@@ -14265,7 +14268,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1398
+  m_SortingOrder: 700
   m_Sprite: {fileID: -374420001, guid: 7f26f7a530375024b8980374ddc54aa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -228,7 +228,7 @@ MonoBehaviour:
   bullet: {fileID: 496967885895071457, guid: 1bfab7eec5ed2374f9e1e82da068cae9, type: 3}
   canMove: 1
   distanceToStop: 4
-  speed: 3
+  speed: 1
   canShoot: 1
 --- !u!1 &6597738149170147253
 GameObject:

@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float dashDuration = 1f;
     public float dashSpeed = 10f;
-    private bool isDashing;
+    public bool isDashing;
     public Animator anim;
     public ParticleSystem particle;
     public Transform startPos;

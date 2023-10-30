@@ -16,7 +16,7 @@ public class Loot : MonoBehaviour
     }
     private void Update()
     {
-        if (Vector2.Distance(transform.position,target.position)<=2f)
+        if (Vector2.Distance(transform.position,target.position)<=PlayerStats.instance.pickUpRange)
         { 
             Follow(); 
         }
@@ -37,7 +37,7 @@ public class Loot : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            ExperienceManager.instance.AddExp(50);
+            ExperienceManager.instance.AddExp(Mathf.RoundToInt(50f * PlayerStats.instance.expMultiplier));
             AudioManager.instance.PlaySFX(AudioManager.instance.lootSound);
             Destroy(gameObject);
         }

@@ -12,7 +12,7 @@ public class PlayerShoot : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
-    public int currentAmmo;
+    private PlayerMovement playerMovement;
     public float classReloadTime;
     public GameObject slider;
     bool canReload = true;
@@ -37,6 +37,7 @@ public class PlayerShoot : MonoBehaviour
     {
         OnReloading?.Invoke(PlayerStats.instance.reloadTime);
         PlayerStats.instance.SetBulletCounter(bulletCounter);
+        playerMovement = GetComponent<PlayerMovement>();
     }
     private void Update()
     {
@@ -53,7 +54,7 @@ public class PlayerShoot : MonoBehaviour
             slider.gameObject.SetActive(true);
             StartCoroutine(Reload());
         }
-        if (Input.GetMouseButtonDown(0) && canShoot&&!PauseMenu.isPaused)
+        if (Input.GetMouseButtonDown(0) && canShoot&&!PauseMenu.isPaused && !playerMovement.isDashing)
         {
             Shoot();
         }
@@ -96,7 +97,7 @@ public class PlayerShoot : MonoBehaviour
         canReload = false;
         yield return new WaitForSeconds(PlayerStats.instance.reloadTime);
         int reloadAmount = PlayerStats.instance.maxClipSize - PlayerStats.instance.currentClip;
-        reloadAmount = (currentAmmo - reloadAmount) >= 0 ? reloadAmount : 0;
+        reloadAmount = (PlayerStats.instance.currentAmmo - reloadAmount) >= 0 ? reloadAmount : 0;
         PlayerStats.instance.currentClip += reloadAmount;
         canReload = true;
         canShoot = true;
