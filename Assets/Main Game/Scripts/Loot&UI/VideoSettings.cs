@@ -4,13 +4,18 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class VideoSettings : MonoBehaviour
 {
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
+    private int vsyncCount;
+    public Toggle toggle;
     private void Start()
     {
+        SetVsync(Convert.ToBoolean(PlayerPrefs.GetInt("Vsync")));
+        toggle.isOn = Convert.ToBoolean(vsyncCount);
         if (!gameObject.active)
         {
             return;
@@ -49,5 +54,13 @@ public class VideoSettings : MonoBehaviour
     public void SetFullscreen(bool fullscreen)
     {
         Screen.fullScreen = fullscreen;
+    }
+    public void SetVsync(bool vsync)
+    {
+        vsyncCount = Convert.ToInt32(vsync);
+        Debug.Log(vsyncCount);
+        toggle.isOn = vsync;
+        QualitySettings.vSyncCount = vsyncCount;
+        PlayerPrefs.SetInt("Vsync",vsyncCount);
     }
 }

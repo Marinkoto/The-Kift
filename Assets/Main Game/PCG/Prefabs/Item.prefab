@@ -47,13 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ee310bf5ee65445a10e24d18798e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portal: {fileID: 3952152622149135432, guid: ce850d7022d2c7b43a5ffb3827428c9d, type: 3}
   spriteRenderer: {fileID: 1124104576826620942}
   itemCollider: {fileID: 6031965934702659660}
   health: 3
   nonDestructible: 0
   hitFeedback: {fileID: 6013863314895316885, guid: 51349dc4a16d8a44ca2ca100f1f1e61e, type: 3}
   destoyFeedback: {fileID: 2734096344166416061, guid: 0f888e2b39aabd64b9537c6cd32241ca, type: 3}
-  itemDestroyEffect: {fileID: 4494090201639922079, guid: 3799e76b56e0503409b8c4038ad25ff0, type: 3}
+  ps: {fileID: 0}
 --- !u!61 &6031965934702659660
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
         if (!LoadingScreeen.loadingScreenON)
         {
             PlayerStats.instance.playerHealth -= damage / PlayerStats.instance.armor;
-            ShowDamage(Mathf.RoundToInt(damage).ToString());
+            ShowDamage(Mathf.RoundToInt(damage / PlayerStats.instance.armor).ToString());
         }
         CameraShake.instance.ShakeCamera(0.2f, 0.6f);
         sr.material = matWhite;

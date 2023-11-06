@@ -254,7 +254,7 @@ MonoBehaviour:
   distanceToShoot: 5
   distanceToStop: 5
   firingPoint: {fileID: 5109774852810224234}
-  fireRate: 1.45
+  fireRate: 0.94
   bullet: {fileID: 496967885895071457, guid: cf53a34242e2acc4580f562cfa4c7ca5, type: 3}
   rotatePoint: {fileID: 1241639178964414333}
 --- !u!114 &-5421258200298967588
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61a1d8b1bb247f4ca4e8bf8456c17e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 35
+  damage: 10
 --- !u!95 &6423409269984665734
 Animator:
   serializedVersion: 5

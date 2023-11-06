@@ -1,0 +1,1103 @@
+fileFormatVersion: 2
+guid: 6ff18776c9459f64383124ae4eaf0061
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 207
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27e773c00a14bca4bb6231ea0dd5df35
+      internalID: -1011730347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 207
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73f38cd9f2dd1042b6189c3bbcde786
+      internalID: -2086346671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 207
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dad0c38f566000943b7b60ca56bd94c6
+      internalID: 1508442790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 207
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da3b347486157224eaa0bee1afeabf6a
+      internalID: -1740048163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 207
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ed29029b8af7c04e868302885ccdd65
+      internalID: -1213839248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 207
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98abc2b45fc96dc40ae480474fb133c6
+      internalID: -770780076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 207
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22400ac903888ab46bc43ac6ca332c94
+      internalID: -1049003384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 207
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e41527e1cf93a0459cba23a66e4143c
+      internalID: -1974862844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 159
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d75e9e4908a7c4696826bafc869485
+      internalID: -324215021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 159
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e463530f9700244a995d8d9c25b5d34
+      internalID: -1111178436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 159
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3e39b278055d94ebd6469e4498a834
+      internalID: -1133931334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 160
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef5a6ce6c45fbb744a2a8b51ac86ec49
+      internalID: 1439926660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 163
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c96077675509b248ada42f46bd4e61e
+      internalID: 555922857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 161
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12ba5dbe0a28a96449370d2283428712
+      internalID: -1397377119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 159
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b75527b3be2d947b09db9754754e82
+      internalID: -1327267128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 111
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 426309e4cffc68f468935943cd90df2a
+      internalID: 1486477546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 111
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e725fb3e030b25419be084175554318
+      internalID: 1457831625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 111
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540ab0f1fb2cc9643b00e474d6e185bf
+      internalID: -1669848580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 111
+        width: 34
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab6bb38a6e4c374c9842595ff523370
+      internalID: -2043301575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 111
+        width: 36
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97cb9d0f3917d442b9326c18e0fdc15
+      internalID: -953300055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 111
+        width: 37
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c038307d70ee264385136b672257133
+      internalID: 1148812526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 63
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e12f887fe27717842a38affc1786d060
+      internalID: -105292461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 63
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f60d3f521640d4e95bfd7624ff8abd
+      internalID: -560892371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 63
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f29c1809981a94e8ffdc6667ced959
+      internalID: 1539367189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 63
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69f8583e0c90b94eb471efce2822e7b
+      internalID: -1012342107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 15
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cca479ac6cecd444b2b51329a826025
+      internalID: -1391970836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 15
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d7532c0dde946479d154c7aa1c8669
+      internalID: 2021267175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 15
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 545e47b77af218043baa80dedbd846f2
+      internalID: 421846276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 16
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5509970a95540b14b8a9a31958cbfc7e
+      internalID: -604387582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 29
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4989068894960f342bc284690469c31b
+      internalID: -1696423841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 25
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638ba5ff5ea6c6547a68e5bec5ae98b6
+      internalID: -1788730620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 17
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e9d2f3c80bc5245ba9516f1ca21757
+      internalID: -730945409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 17
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82fc0dffe95b0bb4399cb5cefeee1ddd
+      internalID: 1605680070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 18
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 403ddb59bf41bcb498582adb672a73f2
+      internalID: 693972852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 27
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1f41acd667657458d539a2251e8783
+      internalID: 1033434350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 22
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6245def57a3aebc4c85e394017ecab3a
+      internalID: -719589484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 27
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c70b26e3a3dd794ca0e0a0a139fc128
+      internalID: -1800979184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 18
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25b26a229a742f344aef78b1383473c1
+      internalID: -275983708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 25
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551cbd184329e8f4f942e256d0b8214f
+      internalID: 2060312747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 19
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec752c9b95679bf4288f62a91553ca71
+      internalID: -1416755396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 20
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148444636cd357143bf4d7e6383fe24c
+      internalID: 730268431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 20
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a959f1ba63c644cb6ec9d745481f2e
+      internalID: 1226540022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 20
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0e19cba84f59643920d31782feb052
+      internalID: 1487736185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicFrogPurpleWhite_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 23
+        width: 49
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a17c570ccecc5b42ad2fa1ad8d605ad
+      internalID: -817081291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ToxicFrogPurpleWhite_Sheet_0: -1011730347
+      ToxicFrogPurpleWhite_Sheet_1: -2086346671
+      ToxicFrogPurpleWhite_Sheet_10: -1133931334
+      ToxicFrogPurpleWhite_Sheet_11: 1439926660
+      ToxicFrogPurpleWhite_Sheet_12: 555922857
+      ToxicFrogPurpleWhite_Sheet_13: -1397377119
+      ToxicFrogPurpleWhite_Sheet_14: -1327267128
+      ToxicFrogPurpleWhite_Sheet_15: 1486477546
+      ToxicFrogPurpleWhite_Sheet_16: 1457831625
+      ToxicFrogPurpleWhite_Sheet_17: -1669848580
+      ToxicFrogPurpleWhite_Sheet_18: -2043301575
+      ToxicFrogPurpleWhite_Sheet_19: -953300055
+      ToxicFrogPurpleWhite_Sheet_2: 1508442790
+      ToxicFrogPurpleWhite_Sheet_20: 1148812526
+      ToxicFrogPurpleWhite_Sheet_21: -105292461
+      ToxicFrogPurpleWhite_Sheet_22: -560892371
+      ToxicFrogPurpleWhite_Sheet_23: 1539367189
+      ToxicFrogPurpleWhite_Sheet_24: -1012342107
+      ToxicFrogPurpleWhite_Sheet_25: -1391970836
+      ToxicFrogPurpleWhite_Sheet_26: 2021267175
+      ToxicFrogPurpleWhite_Sheet_27: 421846276
+      ToxicFrogPurpleWhite_Sheet_28: -604387582
+      ToxicFrogPurpleWhite_Sheet_29: -1696423841
+      ToxicFrogPurpleWhite_Sheet_3: -1740048163
+      ToxicFrogPurpleWhite_Sheet_30: -1788730620
+      ToxicFrogPurpleWhite_Sheet_31: -730945409
+      ToxicFrogPurpleWhite_Sheet_32: 1605680070
+      ToxicFrogPurpleWhite_Sheet_33: 693972852
+      ToxicFrogPurpleWhite_Sheet_34: 1033434350
+      ToxicFrogPurpleWhite_Sheet_35: -719589484
+      ToxicFrogPurpleWhite_Sheet_36: -1800979184
+      ToxicFrogPurpleWhite_Sheet_37: -275983708
+      ToxicFrogPurpleWhite_Sheet_38: 2060312747
+      ToxicFrogPurpleWhite_Sheet_39: -1416755396
+      ToxicFrogPurpleWhite_Sheet_4: -1213839248
+      ToxicFrogPurpleWhite_Sheet_40: 730268431
+      ToxicFrogPurpleWhite_Sheet_41: 1226540022
+      ToxicFrogPurpleWhite_Sheet_42: 1487736185
+      ToxicFrogPurpleWhite_Sheet_43: -817081291
+      ToxicFrogPurpleWhite_Sheet_5: -770780076
+      ToxicFrogPurpleWhite_Sheet_6: -1049003384
+      ToxicFrogPurpleWhite_Sheet_7: -1974862844
+      ToxicFrogPurpleWhite_Sheet_8: -324215021
+      ToxicFrogPurpleWhite_Sheet_9: -1111178436
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

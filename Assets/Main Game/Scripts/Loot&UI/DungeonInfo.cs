@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DungeonInfo : MonoBehaviour
 {
@@ -15,9 +16,14 @@ public class DungeonInfo : MonoBehaviour
     private void Update()
     {
         SetInfo();
-        if(dungeonController.dungeonNumber >= 5)
+        
+        if(dungeonController.dungeonNumber >= 6)
         {
             dungeonLevel++;
+        }
+        if (dungeonController.dungeonNumber == 6 && dungeonLevel == 4)
+        {
+            SceneManager.LoadScene(1);
         }
     }
     private void SetInfo()

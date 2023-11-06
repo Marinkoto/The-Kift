@@ -7,6 +7,7 @@ public class CameraShake : MonoBehaviour
 {
     private CinemachineVirtualCamera Camera;
     private float shakeTimer;
+    private Animator animator;
     public static CameraShake instance{ get; private set; }
     public void Awake()
     {
@@ -19,6 +20,11 @@ public class CameraShake : MonoBehaviour
             instance = this;
         }
         Camera = GetComponent<CinemachineVirtualCamera>();
+    }
+    private void Start()
+    {
+        ShakeCamera(0, 0);
+        animator = GetComponent<Animator>();
     }
     public void ShakeCamera(float intesity,float time)
     {
@@ -41,5 +47,9 @@ public class CameraShake : MonoBehaviour
             }
         }
         
+    }
+    public void ChangeFOV(bool fov)
+    {
+        animator.SetBool("HIGH", fov);
     }
 }

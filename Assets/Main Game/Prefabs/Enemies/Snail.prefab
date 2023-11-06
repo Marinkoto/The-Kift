@@ -161,9 +161,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 1.24
-  damage: 50
+  damage: 30
   particles: {fileID: 2915278639817589186, guid: d2804b84c93e1794680de12ff7efc3e4, type: 3}
   selfDestroyed: 1
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!50 &2785875713981182886
 Rigidbody2D:
   serializedVersion: 4

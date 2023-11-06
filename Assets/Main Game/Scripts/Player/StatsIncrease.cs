@@ -27,7 +27,7 @@ public class StatsIncrease : MonoBehaviour
     }
     public void IncreaseHealth()
     {
-        Mathf.RoundToInt(PlayerStats.instance.playerMaxHealth += PlayerStats.instance.playerMaxHealth *= 0.1f);
+        Mathf.RoundToInt(PlayerStats.instance.playerMaxHealth += PlayerStats.instance.playerMaxHealth *= 0.3f);
         playerHealth.SetUIHealth(PlayerStats.instance.playerHealth, PlayerStats.instance.playerMaxHealth);
         foreach (var enemy in enemiesHealth)
         {
@@ -47,7 +47,7 @@ public class StatsIncrease : MonoBehaviour
     {
         if (PlayerStats.instance.playerHealth <= PlayerStats.instance.playerMaxHealth-50)
         {
-            Mathf.RoundToInt(PlayerStats.instance.playerHealth += PlayerStats.instance.playerHealth + 50);
+            Mathf.RoundToInt(PlayerStats.instance.playerHealth = PlayerStats.instance.playerHealth + 50);
         }
         else
         {

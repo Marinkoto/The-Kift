@@ -16,7 +16,7 @@ public class FightingPitRoom : RoomGenerator
     {
         ItemPlacementHelper itemPlacementHelper =
             new ItemPlacementHelper(roomFloor, roomFloorNoCorridors);
-
+        
         List<GameObject> placedObjects =
             prefabPlacer.PlaceAllItems(itemData, itemPlacementHelper);
 

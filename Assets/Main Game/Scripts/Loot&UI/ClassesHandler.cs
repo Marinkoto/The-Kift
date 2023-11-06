@@ -15,6 +15,7 @@ public class ClassesHandler : MonoBehaviour
     public static ClassesHandler instance;
     public static bool isClassSelected;
     public GameObject[] bulletIcons;
+    
     private void Awake()
     {
         Camera = GameObject.Find("Camera").GetComponent<CameraFollowSetup>();

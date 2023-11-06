@@ -11,6 +11,7 @@ public class EnemyTank : MonoBehaviour
     private EnemyHealth enemyHealth;
     public bool selfDestroyed;
     bool canDamage = true;
+    public LayerMask playerMask;
     private void Start()
     {
         coll = GetComponent<Collider2D>();
@@ -59,7 +60,7 @@ public class EnemyTank : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth player) && selfDestroyed)
+        if (collision.gameObject.TryGetComponent(out PlayerHealth player) && selfDestroyed )
         {
             player.TakeDamage(damage);
             coll.enabled = false;
@@ -70,6 +71,7 @@ public class EnemyTank : MonoBehaviour
         {
             if (canDamage)
             {
+                
                 player.TakeDamage(damage);
                 StartCoroutine(DamageBool());
             }

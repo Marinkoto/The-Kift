@@ -3416,6 +3416,7 @@ MonoBehaviour:
   rb: {fileID: 346563497}
   dashDuration: 0.25
   dashSpeed: 15
+  isDashing: 0
   anim: {fileID: 346563498}
   particle: {fileID: 1748204002}
   startPos: {fileID: 1944560324}
@@ -3565,6 +3566,7 @@ MonoBehaviour:
   hasAxe: 0
   reloadTime: 0
   currentClip: 0
+  currentAmmo: 0
   dashCooldown: 1
   pickUpRange: 0
   expMultiplier: 0
@@ -4321,7 +4323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e848dd83d7533489a27bffa0573ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMusic: {fileID: 8300000, guid: a61b5bf123dcdcf4d9ff7b9836b1d9e6, type: 3}
+  currentMusic: {fileID: 8300000, guid: 1512787cc9e8710478b008557688805c, type: 3}
 --- !u!4 &626415981
 Transform:
   m_ObjectHideFlags: 0
@@ -19736,7 +19738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1996676213
 Animator:
   serializedVersion: 5

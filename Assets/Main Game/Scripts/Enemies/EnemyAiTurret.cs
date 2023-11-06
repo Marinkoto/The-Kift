@@ -51,7 +51,7 @@ public class EnemyAiTurret : MonoBehaviour
         if (Vector2.Distance(target.position, transform.position) <= distanceToShoot && canShoot 
             && !PauseMenu.isPaused && !LoadingScreeen.loadingScreenON)
         {
-            Invoke("Shoot",1f);
+            Shoot();
         }
     }
     private void GetTarget()

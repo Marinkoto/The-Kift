@@ -33,15 +33,14 @@ public class PlayerStats : MonoBehaviour
     public TextMeshProUGUI expText;
     public TextMeshProUGUI levelText;
     
-    public void SetStartPosition()
-    {
-        Invoke("StartPosition", 1f);
-    }
     public void StartPosition()
     {
         transform.position = startPos.position;
     }
-    
+    public void BossFightPosition(Transform boss)
+    {
+        transform.position = boss.position;
+    }
     private void Awake()
     {
         instance = this;
@@ -59,7 +58,7 @@ public class PlayerStats : MonoBehaviour
     private void Update()
     {
         
-        startPos = GameObject.Find("Start Pos").gameObject.transform;
+        startPos = GameObject.Find("Start Pos").transform;
         if (currentExp >= maxExp)
         {
             LevelUp();

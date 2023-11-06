@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
-{   
+{
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -18,7 +18,7 @@ public class Portal : MonoBehaviour
     }
     public void SetPosition()
     {
-        PlayerStats.instance.Invoke("SetStartPosition", 1f);
+        PlayerStats.instance.Invoke("StartPosition", 2f);
         
     }
     public IEnumerator StopTime()

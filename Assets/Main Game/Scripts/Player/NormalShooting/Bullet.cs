@@ -56,6 +56,13 @@ public class Bullet : MonoBehaviour
     //for enemies which have normal colliders
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.TryGetComponent<BossHealth>(out BossHealth boss))
+        {
+            boss.TakeDamage(PlayerStats.instance.playerDamage);
+            Destroy(gameObject);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+            AudioManager.instance.PlaySFX(classHitWallSound);
+        }
         if (collision.gameObject.CompareTag("Bullet") && canBeDestroyedBySelf)
         {
             Destroy(gameObject);

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5121755460809682185}
   - component: {fileID: 7573310851700662549}
   - component: {fileID: 1858738251714583213}
-  - component: {fileID: -4404279777340774472}
+  - component: {fileID: -3654309362915510825}
   m_Layer: 0
   m_Name: Snow King Bullet
   m_TagString: EnemyBullet
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_Offset: {x: -0.024326444, y: 0}
   serializedVersion: 2
   m_Radius: 0.2713257
---- !u!114 &-4404279777340774472
+--- !u!114 &-3654309362915510825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,6 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372968bf1b6d2ce4cb8a2b3eb649f8cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 3.84
   ps: {fileID: 1766995220302419347, guid: be096e8c24f71e74db31cec41c3c0761, type: 3}
   damage: 14

@@ -207,7 +207,7 @@ MonoBehaviour:
   distanceToShoot: 6
   distanceToStop: 5
   firingPoint: {fileID: 130010459666100613}
-  fireRate: 1.25
+  fireRate: 0.75
   bullet: {fileID: 496967885895071457, guid: 4b7b99915ee808941bf199b702755a7e, type: 3}
   rotatePoint: {fileID: 6333342815216044414}
 --- !u!114 &6333342816524987211

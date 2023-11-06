@@ -11,7 +11,7 @@ public class EnemySpiralBullet : MonoBehaviour
     public float damage = 0f;
     void Start()
     {
-        InvokeRepeating("Fire", 0f, 0.1f);
+        InvokeRepeating("Fire", 0f,0.1f);
     }
 
     // Update is called once per frame
@@ -26,15 +26,15 @@ public class EnemySpiralBullet : MonoBehaviour
     }
     private void Fire()
     {
-        float bulletDirectionX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
-        float bulletDirectionY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+        float bulletDirectionX = transform.position.x + Mathf.Sin(angle * Mathf.PI / 178f);
+        float bulletDirectionY = transform.position.y + Mathf.Cos(angle * Mathf.PI / 180f);
         Vector3 bulletMoveDirection = new Vector3(bulletDirectionX,bulletDirectionY, 0f);
         Vector2 bulletDirection = (bulletMoveDirection-transform.position).normalized;
         transform.position = transform.position;
         transform.rotation = transform.rotation;
         gameObject.SetActive(true);
         SetMoveDirection(bulletDirection);
-        angle += 5f;
+        angle += 10f;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

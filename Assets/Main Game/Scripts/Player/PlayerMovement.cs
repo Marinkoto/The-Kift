@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
         }
-        if (Input.GetMouseButtonDown(1) && PlayerStats.instance.canDash && !PauseMenu.isPaused)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerStats.instance.canDash && !PauseMenu.isPaused)
         {
             StartCoroutine(Dash());
             AudioManager.instance.PlaySFX(AudioManager.instance.playerDash);
