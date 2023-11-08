@@ -35,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
         if (PlayerStats.instance.playerHealth <= 0)
         {
             SceneManager.LoadScene(1);
+            PlayfabManager.instance.AddCurrency(Random.Range(20, 40));
         }
         else
         {

@@ -21,9 +21,10 @@ public class DungeonInfo : MonoBehaviour
         {
             dungeonLevel++;
         }
-        if (dungeonController.dungeonNumber == 6 && dungeonLevel == 4)
+        if (dungeonLevel == 4)
         {
             SceneManager.LoadScene(1);
+            PlayfabManager.instance.AddCurrency(Random.Range(50, 80));
         }
     }
     private void SetInfo()

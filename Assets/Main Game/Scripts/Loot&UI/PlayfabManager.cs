@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class PlayfabManager : MonoBehaviour
 {
+    public static PlayfabManager instance;
     public int loggedIn = 0;
     [SerializeField] TextMeshProUGUI message;
     [SerializeField] GameObject profilePage;
@@ -22,15 +23,64 @@ public class PlayfabManager : MonoBehaviour
     [SerializeField] TMP_InputField passwordConfirmRegisterInput;
     [Header("Recovery")]
     [SerializeField] TMP_InputField emailRecoveryInput;
-   
+    [Header("UI")]
+    [SerializeField] TextMeshProUGUI tokenCount;
+    public Button fishButton;
+    public Button axeButton;
+    public Button mageButton;
+    private void OnEnable()
+    {
+        instance = this;
+    }
     void Start()
     {
-        loggedIn = PlayerPrefs.GetInt("loggedIn");
+        fishButton.interactable = !Convert.ToBoolean(PlayerPrefs.GetInt("fishBought"));
+        axeButton.interactable = !Convert.ToBoolean(PlayerPrefs.GetInt("axeBought"));
+        mageButton.interactable = !Convert.ToBoolean(PlayerPrefs.GetInt("mageBought"));
+        loggedIn = Convert.ToInt32(PlayFabClientAPI.IsClientLoggedIn());
+        PlayerPrefs.SetInt("loggedIn", loggedIn);
     }
     private void Update()
     {
         
     }
+
+    public void GetVirtualCurrencies()
+    {
+        try
+        {
+           PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnGetUserInventorySuccess, OnError);
+        }
+        catch (PlayFabException)
+        {
+            message.text = "You need to login first to proceed to shop";
+            StartCoroutine(ResetMessage());
+            return;
+        }
+       
+    }
+    public void AddCurrency(int amount)
+    {
+        var request = new AddUserVirtualCurrencyRequest
+        {
+            VirtualCurrency = "CT",
+            Amount = amount
+        };
+        PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddSuccess, OnError);
+    }
+
+    private void OnAddSuccess(ModifyUserVirtualCurrencyResult result)
+    {
+        GetVirtualCurrencies();
+    }
+
+    private void OnGetUserInventorySuccess(GetUserInventoryResult result)
+    {
+        int tokens = result.VirtualCurrency["CT"];
+        tokenCount.text = tokens.ToString();
+        
+    }
+
     public void OpenProfile()
     {
         profilePage.SetActive(true);
@@ -100,6 +150,9 @@ public class PlayfabManager : MonoBehaviour
         PlayerPrefs.SetInt("loggedIn", 1);
         OpenProfile();
         StartCoroutine(ResetMessage());
+        fishButton.interactable = !Convert.ToBoolean(PlayerPrefs.GetInt("fishBought"));
+        axeButton.interactable = !Convert.ToBoolean(PlayerPrefs.GetInt("axeBought"));
+        mageButton.interactable = !Convert.ToBoolean(PlayerPrefs.GetInt("mageBought"));
     }
 
     private void OnError(PlayFabError error)
@@ -115,7 +168,7 @@ public class PlayfabManager : MonoBehaviour
     }
     public void OpenProfileIfLogged()
     {
-        if (PlayerPrefs.GetInt("loggedIn")!=1)
+        if (PlayerPrefs.GetInt("loggedIn")!= 1)
         {
             loginPage.SetActive(true);
         }
