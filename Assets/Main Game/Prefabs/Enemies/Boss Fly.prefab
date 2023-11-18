@@ -79,9 +79,10 @@ GameObject:
   - component: {fileID: 6333342816524987211}
   - component: {fileID: -7133860609126878944}
   - component: {fileID: 1905138099767522992}
+  - component: {fileID: -6706241025018920977}
   m_Layer: 9
   m_Name: Boss Fly
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,7 +227,7 @@ MonoBehaviour:
   maxHealth: 50
   boundHealth: 50
   matWhite: {fileID: 2100000, guid: e3d9a28ca504a9c4284b986fd9faa7ff, type: 2}
-  lootPrefab: {fileID: 6523960941471899613, guid: c0ab35c149c647348ae15dcd8ccb6b4e, type: 3}
+  lootPrefab: {fileID: 6523960941471899613, guid: ebf528df75dbff546945525f10b895c0, type: 3}
   floatingTextPrefab: {fileID: 6719426965618277448, guid: a62bc3918eaf5834faae8e8f8f52191a, type: 3}
   canMove: 1
   particles: {fileID: 2915278639817589186, guid: 789fce019c7038a4389680c884447992, type: 3}
@@ -277,3 +278,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.65961206, y: 0.590477}
   m_EdgeRadius: 0
+--- !u!114 &-6706241025018920977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6333342816524987216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65fb1e4d130943a488ef61ff2e545c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}

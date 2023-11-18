@@ -54,7 +54,7 @@ public class PlayerShoot : MonoBehaviour
             slider.gameObject.SetActive(true);
             StartCoroutine(Reload());
         }
-        if (Input.GetMouseButtonDown(0) && canShoot&&!PauseMenu.isPaused && !playerMovement.isDashing)
+        if (Input.GetMouseButtonDown(0) && canShoot&&!PauseMenu.isPaused && !playerMovement.isDashing && !DungeonInfo.onEnd)
         {
             Shoot();
         }

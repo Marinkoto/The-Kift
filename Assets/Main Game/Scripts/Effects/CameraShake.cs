@@ -35,6 +35,10 @@ public class CameraShake : MonoBehaviour
     }
     private void Update()
     {
+        if (Time.timeScale <= 0)
+        {
+            ShakeCamera(0, 0);
+        }
         UnityEngine.Camera.main.transform.rotation = Quaternion.identity;
         if (shakeTimer>0f)
         {

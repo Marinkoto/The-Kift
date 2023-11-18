@@ -14,7 +14,7 @@ public class FPSCounter : MonoBehaviour
     }
     private void Start()
     {
-        fpsText = GameObject.FindGameObjectWithTag("FPS").GetComponent<TextMeshProUGUI>();
+        fpsText = GetComponent<TextMeshProUGUI>();
     }
     void Update()
     {

@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     private Material matDef;
     public PlayerHealthBar playerHealthBar;
     public GameObject floatingTextPrefab;
+    public DungeonInfo dungeonInfo;
+    public DungeonController dungeonController;
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -28,19 +30,38 @@ public class PlayerHealth : MonoBehaviour
         }
         CameraShake.instance.ShakeCamera(0.2f, 0.6f);
         sr.material = matWhite;
+        Invoke("ResetMaterial", 0.16f);
         if (!PlayerStats.instance)
         {
             return;
         }
         if (PlayerStats.instance.playerHealth <= 0)
         {
-            SceneManager.LoadScene(1);
-            PlayfabManager.instance.AddCurrency(Random.Range(20, 40));
+            if (dungeonController.dungeonNumber < 3 && dungeonInfo.dungeonLevel == 1)
+            {
+                int tokens = Random.Range(0, 5);
+                PlayfabManager.instance.AddCurrency(tokens);
+                dungeonInfo.EnableLoseScreen(tokens);
+            }
+            if(dungeonController.dungeonNumber > 3 && dungeonInfo.dungeonLevel == 1)
+            {          int tokens = Random.Range(20, 30);
+                PlayfabManager.instance.AddCurrency(tokens);
+                dungeonInfo.EnableLoseScreen(tokens);
+            }
+            if(dungeonInfo.dungeonLevel == 2)
+            {
+                int tokens = Random.Range(40, 50);
+                PlayfabManager.instance.AddCurrency(tokens);
+                dungeonInfo.EnableLoseScreen(tokens);
+            }
+            if (dungeonInfo.dungeonLevel == 3)
+            {
+                int tokens = Random.Range(60, 70);
+                PlayfabManager.instance.AddCurrency(tokens);
+                dungeonInfo.EnableLoseScreen(tokens);
+            }
         }
-        else
-        {
-            Invoke("ResetMaterial", .15f);
-        }
+        
     }
     private void Update()
     {

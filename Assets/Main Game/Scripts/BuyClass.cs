@@ -25,7 +25,14 @@ public class BuyClass : MonoBehaviour
             VirtualCurrency = "CT",
             Amount = tokensPrice,
         };
-        PlayFabClientAPI.SubtractUserVirtualCurrency(request, OnSubtractCoinsSuccess, OnError);
+        if (PlayfabManager.instance.tokens >= tokensPrice)
+        {
+            PlayFabClientAPI.SubtractUserVirtualCurrency(request, OnSubtractCoinsSuccess, OnError);
+        }
+        else
+        {
+            PlayfabManager.instance.message.text = "Not enough tokens";
+        }
     }
 
     private void OnSubtractCoinsSuccess(ModifyUserVirtualCurrencyResult result)

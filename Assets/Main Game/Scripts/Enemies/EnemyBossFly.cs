@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class EnemyBossFly : MonoBehaviour
 {
-    FrogWeapon weapon;
+    public FrogWeapon weapon;
+    private void Start()
+    {
+        weapon = GameObject.FindGameObjectWithTag("Boss").GetComponent<FrogWeapon>();
+    }
     private void OnDestroy()
     {
         weapon.flyCount--;

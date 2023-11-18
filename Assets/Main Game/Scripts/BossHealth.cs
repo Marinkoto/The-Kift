@@ -16,6 +16,7 @@ public class BossHealth : MonoBehaviour
     public bool isInvulnerable = false;
 	public GameObject portal;
 	public GameObject floatingTextPrefab;
+    public Transform room;
     private void Start()
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
@@ -45,7 +46,8 @@ public class BossHealth : MonoBehaviour
 
 	void Die()
 	{
-		Instantiate(portal, transform.position, Quaternion.identity);
+		GameObject spawnedPortal = Instantiate(portal, transform.position, Quaternion.identity);
+        spawnedPortal.transform.parent = room.transform;
 		//Instantiate(deathEffect, transform.position, Quaternion.identity);
 		Destroy(gameObject);
 		PlayerStats.instance.playerHealth = PlayerStats.instance.playerMaxHealth;

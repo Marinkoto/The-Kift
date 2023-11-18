@@ -11,6 +11,7 @@ public class LoadingScreeen : MonoBehaviour
     {
         audioManager = GameObject.Find("Audio Manager");
         loadingScreen.SetActive(false);
+        loadingScreenON = false;
     }
     public IEnumerator Enable()
     {

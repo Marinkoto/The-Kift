@@ -140,8 +140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletLife: 8.57
   rotation: 0
-  speed: 8
-  damage: 20
+  speed: 10.09
+  damage: 13
 --- !u!114 &-791939318449307737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972955b759ee8f843b314beeeeff8cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 5
+  seconds: 10
 --- !u!1 &6958126055693152807
 GameObject:
   m_ObjectHideFlags: 0

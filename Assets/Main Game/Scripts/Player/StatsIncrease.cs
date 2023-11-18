@@ -123,7 +123,7 @@ public class StatsIncrease : MonoBehaviour
     }
     public void AddExp()
     {
-        PlayerStats.instance.currentExp = PlayerStats.instance.currentExp + 50;
+        PlayerStats.instance.currentExp = PlayerStats.instance.currentExp + 150;
         PlayerStats.instance.SetExpBar();
         foreach (var enemy in enemiesHealth)
         {
@@ -148,7 +148,7 @@ public class StatsIncrease : MonoBehaviour
     }
     public void IncreaseArmor()
     {
-        PlayerStats.instance.armor = PlayerStats.instance.armor + 0.25f;
+        PlayerStats.instance.armor = PlayerStats.instance.armor + 0.1f;
         if (PlayerStats.instance.armor>=5f)
         {
             Mathf.RoundToInt(PlayerStats.instance.playerMaxHealth += PlayerStats.instance.playerMaxHealth *= 0.1f);
@@ -162,5 +162,6 @@ public class StatsIncrease : MonoBehaviour
     public void StartTime()
     {
         Time.timeScale = 1f;
+        Cursor.visible = false;
     }
 }
