@@ -100,6 +100,13 @@ public class Axe : MonoBehaviour
             enemy.TakeDamage(PlayerStats.instance.playerDamage);
 
         }
+        if (collision.gameObject.TryGetComponent<BossHealth>(out BossHealth boss) && isDamaged)
+        {
+            isDamaged = true;
+            AudioManager.instance.PlayHitSFX(AudioManager.instance.enemyHit);
+            boss.TakeDamage(PlayerStats.instance.playerDamage);
+
+        }
         if (collision.gameObject.CompareTag("Wall"))
         {
             isDamaged = true;
@@ -109,11 +116,23 @@ public class Axe : MonoBehaviour
         }
         if (collision.gameObject.TryGetComponent<Item>(out Item item) && !item.nonDestructible && isDamaged)
         {
+            Destroy(collision.gameObject);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+        }
+        if (collision.gameObject.TryGetComponent<BossRoomObstacles>(out BossRoomObstacles obstacle) && isDamaged)
+        {
+            Destroy(collision.gameObject);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
             isDamaged = true;
             returnWeapon = true;
             isRotating = false;
-            Destroy(collision.gameObject);
-            Instantiate(hitEffect, transform.position, Quaternion.identity);
+            transform.position = Vector2.MoveTowards(transform.position, player.position + offset, moveSpeed * 3 * Time.deltaTime);
         }
     }
 }

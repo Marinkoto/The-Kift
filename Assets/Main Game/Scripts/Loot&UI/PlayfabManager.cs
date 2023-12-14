@@ -34,6 +34,7 @@ public class PlayfabManager : MonoBehaviour
     public Button fishButton;
     public Button axeButton;
     public Button mageButton;
+    public Button smgButton;
     private PlayFabAuthService _AuthService = PlayFabAuthService.Instance;
     public GetPlayerCombinedInfoRequestParams InfoRequestParams;
     public Toggle RememberMe;
@@ -81,6 +82,7 @@ public class PlayfabManager : MonoBehaviour
         fishButton.interactable = !Convert.ToBoolean(PlayerPrefs.GetInt("fishBought"));
         axeButton.interactable = !Convert.ToBoolean(PlayerPrefs.GetInt("axeBought"));
         mageButton.interactable = !Convert.ToBoolean(PlayerPrefs.GetInt("mageBought"));
+        smgButton.interactable = !Convert.ToBoolean(PlayerPrefs.GetInt("smgBought"));
         _AuthService.InfoRequestParams = InfoRequestParams;
         _AuthService.Authenticate();
     }

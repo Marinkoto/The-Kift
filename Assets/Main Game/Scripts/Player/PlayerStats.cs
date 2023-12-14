@@ -15,7 +15,10 @@ public class PlayerStats : MonoBehaviour
     public float currentExp;
     public int bulletAmount;
     public int maxClipSize;
+    public float fireRate;
     public bool canDash;
+    public bool canMove;
+    public bool canShoot;
     [Range(1f,5f)]
     public float armor;
     public bool hasAxe;
@@ -54,10 +57,12 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
         SetExpBar();
+        canMove = true;
     }
     private void Update()
     {
-        
+        QuestManager.instance.CollectEXP();
+        QuestManager.instance.ReachLevel();
         startPos = GameObject.Find("Start Pos").transform;
         if (currentExp >= maxExp)
         {

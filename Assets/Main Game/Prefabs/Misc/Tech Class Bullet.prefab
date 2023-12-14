@@ -108,6 +108,7 @@ MonoBehaviour:
   chainsLightning: 0
   canBeDestroyedBySelf: 0
   classHitWallSound: {fileID: 8300000, guid: 3c443758f41bd0e4b9921e58a8dc3328, type: 3}
+  canDestroyEnemyBullets: 1
 --- !u!50 &-6384397567641730099
 Rigidbody2D:
   serializedVersion: 4

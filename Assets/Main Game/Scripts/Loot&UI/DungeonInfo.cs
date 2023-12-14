@@ -20,6 +20,7 @@ public class DungeonInfo : MonoBehaviour
     }
     private void Update()
     {
+        QuestManager.instance.ReachDungeon();
         SetInfo();
         if(dungeonController.dungeonNumber >= 6)
         {

@@ -7,10 +7,11 @@ public class AudioManager : MonoBehaviour
     public const bool isSet = false;
     public static AudioManager instance;
     [Header("Audio Source")]
-    [SerializeField] public AudioSource musicSource;
+    [SerializeField] public AudioSource MusicSource;
     [SerializeField] AudioSource SFXSource;
     [SerializeField] AudioSource HitSFXSource;
     [SerializeField] AudioSource LevelUPSFXSource;
+    [SerializeField] AudioSource ShootFXSource;
     [Header("Audio Clips")]
     public AudioClip menuMusic;
     public AudioClip playerDash;
@@ -44,9 +45,14 @@ public class AudioManager : MonoBehaviour
         {
             DontDestroyOnLoad(this);
         }
-        musicSource.Play();
+        MusicSource.Play();
     }
     public void PlaySFX(AudioClip _clip)
+    {
+        SFXSource.clip = _clip;
+        SFXSource.Play();
+    }
+    public void PlayShootSFX(AudioClip _clip)
     {
         SFXSource.clip = _clip;
         SFXSource.Play();

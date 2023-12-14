@@ -7,26 +7,31 @@ using System.Threading;
 public class HandleAiming : MonoBehaviour
 {
     private Transform aimTransform;
+    public bool canAim;
     private void Start()
     {
         aimTransform = transform.Find("Aim");
+        canAim = true;
     }
     private void Aiming()
     {
-        Vector3 mousePos = UtilsClass.GetMouseWorldPosition();
-        Vector3 aimDir = (mousePos - transform.position).normalized;
-        float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
-        aimTransform.eulerAngles = new Vector3(0, 0, angle);
-        Vector3 localScale = Vector3.one;
-        if (angle>90 || angle<-90)
+        if (canAim)
         {
-            localScale.y = -1f;
+            Vector3 mousePos = UtilsClass.GetMouseWorldPosition();
+            Vector3 aimDir = (mousePos - transform.position).normalized;
+            float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
+            aimTransform.eulerAngles = new Vector3(0, 0, angle);
+            Vector3 localScale = Vector3.one;
+            if (angle > 90 || angle < -90)
+            {
+                localScale.y = -1f;
+            }
+            else
+            {
+                localScale.y = +1f;
+            }
+            aimTransform.localScale = localScale;
         }
-        else
-        {
-            localScale.y = +1f;
-        }
-        aimTransform.localScale = localScale;
     }
     void Update()
     {

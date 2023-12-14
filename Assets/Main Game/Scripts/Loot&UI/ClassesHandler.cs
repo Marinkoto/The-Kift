@@ -12,9 +12,11 @@ public class ClassesHandler : MonoBehaviour
     public Transform fishClass;
     public Transform mageClass;
     public Transform axeMasterClass;
+    public Transform smgClass;
     public static ClassesHandler instance;
     public static bool isClassSelected;
     public GameObject[] bulletIcons;
+    public GameObject minimapIcon;
     
     private void Awake()
     {
@@ -39,6 +41,17 @@ public class ClassesHandler : MonoBehaviour
         Cursor.visible = false;
         Camera.followTransform = classSelected.transform;
         CameraFollow.Instance.Setup(() => Camera.followTransform.position, () => 7f, true, true);
+        minimapIcon.SetActive(true);
+    }
+    public void SmgClassEnable()
+    {
+        isClassSelected = true;
+        bulletIcons[3].SetActive(true);
+        classSelected = smgClass.gameObject.transform;
+        Cursor.visible = false;
+        Camera.followTransform = classSelected.transform;
+        CameraFollow.Instance.Setup(() => Camera.followTransform.position, () => 7f, true, true);
+        minimapIcon.SetActive(true);
     }
     public void FishClassEnable()
     {
@@ -48,6 +61,7 @@ public class ClassesHandler : MonoBehaviour
         Cursor.visible = false;
         Camera.followTransform = classSelected.transform;
         CameraFollow.Instance.Setup(() => Camera.followTransform.position, () => 7f, true, true);
+        minimapIcon.SetActive(true);
     }
     public void MageClassEnable()
     {
@@ -57,6 +71,7 @@ public class ClassesHandler : MonoBehaviour
         Cursor.visible = false;
         Camera.followTransform = classSelected.transform;
         CameraFollow.Instance.Setup(() => Camera.followTransform.position, () => 7f, true, true);
+        minimapIcon.SetActive(true);
     }
     public void AxeMasterClassEnable()
     {
@@ -65,5 +80,6 @@ public class ClassesHandler : MonoBehaviour
         Cursor.visible = false;
         Camera.followTransform = classSelected.transform;
         CameraFollow.Instance.Setup(() => Camera.followTransform.position, () => 7f, true, true);
+        minimapIcon.SetActive(true);
     }
 }

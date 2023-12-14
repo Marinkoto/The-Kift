@@ -13,52 +13,58 @@ public class PlayerHealth : MonoBehaviour
     public GameObject floatingTextPrefab;
     public DungeonInfo dungeonInfo;
     public DungeonController dungeonController;
+    public bool canGetHit;
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         PlayerStats.instance.playerHealth = PlayerStats.instance.playerMaxHealth;
         matDef = sr.material;
         playerHealthBar.SetUIHealth(PlayerStats.instance.playerHealth, PlayerStats.instance.playerMaxHealth);
+        canGetHit = true;
     }
     public void TakeDamage(float damage)
     {
-        AudioManager.instance.PlayHitSFX(AudioManager.instance.playerHit);
-        if (!LoadingScreeen.loadingScreenON)
+        if (canGetHit)
         {
-            PlayerStats.instance.playerHealth -= damage / PlayerStats.instance.armor;
-            ShowDamage(Mathf.RoundToInt(damage / PlayerStats.instance.armor).ToString());
-        }
-        CameraShake.instance.ShakeCamera(0.2f, 0.6f);
-        sr.material = matWhite;
-        Invoke("ResetMaterial", 0.16f);
-        if (!PlayerStats.instance)
-        {
-            return;
-        }
-        if (PlayerStats.instance.playerHealth <= 0)
-        {
-            if (dungeonController.dungeonNumber < 3 && dungeonInfo.dungeonLevel == 1)
+            AudioManager.instance.PlayHitSFX(AudioManager.instance.playerHit);
+            if (!LoadingScreeen.loadingScreenON)
             {
-                int tokens = Random.Range(0, 5);
-                PlayfabManager.instance.AddCurrency(tokens);
-                dungeonInfo.EnableLoseScreen(tokens);
+                PlayerStats.instance.playerHealth -= damage / PlayerStats.instance.armor;
+                ShowDamage(Mathf.RoundToInt(damage / PlayerStats.instance.armor).ToString());
             }
-            if(dungeonController.dungeonNumber > 3 && dungeonInfo.dungeonLevel == 1)
-            {          int tokens = Random.Range(20, 30);
-                PlayfabManager.instance.AddCurrency(tokens);
-                dungeonInfo.EnableLoseScreen(tokens);
-            }
-            if(dungeonInfo.dungeonLevel == 2)
+            CameraShake.instance.ShakeCamera(0.2f, 0.6f);
+            sr.material = matWhite;
+            Invoke("ResetMaterial", 0.16f);
+            if (!PlayerStats.instance)
             {
-                int tokens = Random.Range(40, 50);
-                PlayfabManager.instance.AddCurrency(tokens);
-                dungeonInfo.EnableLoseScreen(tokens);
+                return;
             }
-            if (dungeonInfo.dungeonLevel == 3)
+            if (PlayerStats.instance.playerHealth <= 0)
             {
-                int tokens = Random.Range(60, 70);
-                PlayfabManager.instance.AddCurrency(tokens);
-                dungeonInfo.EnableLoseScreen(tokens);
+                if (dungeonController.dungeonNumber < 3 && dungeonInfo.dungeonLevel == 1)
+                {
+                    int tokens = Random.Range(0, 5);
+                    PlayfabManager.instance.AddCurrency(tokens);
+                    dungeonInfo.EnableLoseScreen(tokens);
+                }
+                if (dungeonController.dungeonNumber > 3 && dungeonInfo.dungeonLevel == 1)
+                {
+                    int tokens = Random.Range(20, 30);
+                    PlayfabManager.instance.AddCurrency(tokens);
+                    dungeonInfo.EnableLoseScreen(tokens);
+                }
+                if (dungeonInfo.dungeonLevel == 2)
+                {
+                    int tokens = Random.Range(40, 50);
+                    PlayfabManager.instance.AddCurrency(tokens);
+                    dungeonInfo.EnableLoseScreen(tokens);
+                }
+                if (dungeonInfo.dungeonLevel == 3)
+                {
+                    int tokens = Random.Range(60, 70);
+                    PlayfabManager.instance.AddCurrency(tokens);
+                    dungeonInfo.EnableLoseScreen(tokens);
+                }
             }
         }
         

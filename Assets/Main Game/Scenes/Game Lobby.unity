@@ -3421,6 +3421,7 @@ MonoBehaviour:
   anim: {fileID: 346563502}
   particle: {fileID: 1748204002}
   startPos: {fileID: 1944560324}
+  playerHealth: {fileID: 346563496}
 --- !u!114 &346563494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3433,6 +3434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7459f5cef09f63a468a742a8add8c5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canAim: 0
 --- !u!114 &346563496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3543,6 +3545,7 @@ MonoBehaviour:
   currentExp: 0
   bulletAmount: 0
   maxClipSize: 0
+  fireRate: 0
   canDash: 1
   armor: 0
   hasAxe: 0
@@ -3773,7 +3776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3782,9 +3785,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
+    m_PressedColor: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
+    m_SelectedColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3945,7 +3948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3954,9 +3957,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
+    m_PressedColor: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
+    m_SelectedColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4342,7 +4345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e848dd83d7533489a27bffa0573ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMusic: {fileID: 8300000, guid: 1512787cc9e8710478b008557688805c, type: 3}
+  currentMusic: {fileID: 8300000, guid: 9b3ae7123f1075440b8be8d007296eab, type: 3}
 --- !u!4 &626415981
 Transform:
   m_ObjectHideFlags: 0
@@ -19723,7 +19726,9 @@ MonoBehaviour:
   fishClass: {fileID: 0}
   mageClass: {fileID: 346563492}
   axeMasterClass: {fileID: 0}
+  smgClass: {fileID: 0}
   bulletIcons: []
+  minimapIcon: {fileID: 0}
 --- !u!4 &1944560324
 Transform:
   m_ObjectHideFlags: 0
@@ -20024,7 +20029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -20033,9 +20038,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
+    m_PressedColor: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
+    m_SelectedColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1

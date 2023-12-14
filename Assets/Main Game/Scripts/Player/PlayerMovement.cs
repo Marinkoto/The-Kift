@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
     public ParticleSystem particle;
     public Transform startPos;
+    public PlayerHealth playerHealth;
     private void Awake()
     {
         transform.position = startPos.position; 
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        if (!PauseMenu.isPaused)
+        if (!PauseMenu.isPaused && PlayerStats.instance.canMove)
         {
             Move();
         }
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Dash()
     {
         PlayerStats.instance.canDash = false;
+        playerHealth.canGetHit = false;
         isDashing = true;
         anim.SetBool("Dash", isDashing);
         Time.timeScale = 0.65f;
@@ -51,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         Time.timeScale = 1f;
         anim.SetBool("Dash", isDashing);
+        playerHealth.canGetHit = true;
         yield return new WaitForSeconds(PlayerStats.instance.dashCooldown);
         PlayerStats.instance.canDash = true;
         

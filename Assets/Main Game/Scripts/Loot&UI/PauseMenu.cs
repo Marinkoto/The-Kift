@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject crosshair;
     public GameObject healthBar;
     public GameObject expBar;
+    public GameObject questMenu;
     public GameObject bulletCounter;
     public TextMeshProUGUI statText;
     public static bool isPaused;
@@ -53,9 +54,10 @@ public class PauseMenu : MonoBehaviour
         PlayerStats.instance.StatsTextSet(statText);
         pauseMenu.SetActive(true);
         statText.gameObject.SetActive(true);
-        Time.timeScale = 0.0f;
+        Time.timeScale = 0f;
         Cursor.visible = true;
         isPaused = true;
+        questMenu.SetActive(false);
 
     }
     public void LoadScene(int indexOfScene)
@@ -70,6 +72,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         Cursor.visible = false;
         isPaused = false;
+        questMenu.SetActive(false);
     }
     public void DisableCrosshair()
     {

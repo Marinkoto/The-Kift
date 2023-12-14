@@ -8,19 +8,17 @@ using TMPro;
 public class EnemyAIRanged : MonoBehaviour
 {
     public Transform target;
-    public float speed = 3f;
     public static EnemyAIRanged instance; 
-    public float distanceToShoot = 5f;
-    public float distanceToStop = 3f;
     public Transform firingPoint;
-    public float fireRate;
     private float timeToFire;
     public GameObject bullet;
     public Transform rotatePoint;
     private EnemyHealth enemyHealth;
     private Collider2D coll;
+    public EnemyStats enemyStats;
     private void Start()
     {
+        enemyStats = GetComponent<EnemyStats>();
         enemyHealth = GetComponent<EnemyHealth>();
         coll = GetComponent<Collider2D>();
         coll.enabled = false;
@@ -32,11 +30,11 @@ public class EnemyAIRanged : MonoBehaviour
         {
             GetTarget();
         }
-        if (!target)
+        else if (!target)
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= 7f && enemyHealth.canMove )
+        else if (Vector2.Distance(target.position, transform.position) <= 7f && enemyHealth.canMove )
         {
             coll.enabled = true;
             Invoke("Move", 3);
@@ -46,7 +44,7 @@ public class EnemyAIRanged : MonoBehaviour
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= distanceToShoot 
+        else if (Vector2.Distance(target.position, transform.position) <= enemyStats.distanceToShoot 
             && !PauseMenu.isPaused && !LoadingScreeen.loadingScreenON)
         {
             Invoke("Shoot", 1f);
@@ -71,7 +69,7 @@ public class EnemyAIRanged : MonoBehaviour
             Instantiate(bullet, firingPoint.position,firingPoint.rotation);
            
 
-            timeToFire = fireRate;
+            timeToFire = enemyStats.fireRate;
         }
         else
         {
@@ -82,9 +80,9 @@ public class EnemyAIRanged : MonoBehaviour
     {
         if (target!=null)
         {
-            if (Vector2.Distance(target.position, transform.position) >= distanceToStop)
+            if (Vector2.Distance(target.position, transform.position) >= enemyStats.distanceToStop)
             {
-                transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, enemyStats.moveSpeed * Time.deltaTime);
             }
         }
            

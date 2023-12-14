@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemySpiralBullet : MonoBehaviour
 {
+    public float bulletSpeed;
+    public float damage;
     private Vector2 moveDirection;
     public float moveSpeed;
     private float angle = 0f;
     public ParticleSystem ps;
-    public float damage = 0f;
     void Start()
     {
         InvokeRepeating("Fire", 0f,0.1f);
@@ -38,7 +39,7 @@ public class EnemySpiralBullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth player))
+        if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth player) && player.canGetHit)
         {
             player.TakeDamage(damage);
             Destroy(gameObject);

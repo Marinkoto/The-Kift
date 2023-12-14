@@ -7,19 +7,17 @@ public class EnemyAiTurret : MonoBehaviour
 {
     public Transform target;
     public static EnemyAIRanged instance;
-    public float distanceToShoot = 5f;
     public Transform[] firingPoints;
-    public float fireRate;
     private float timeToFire;
     public GameObject bullet;
     private Collider2D coll;
     public bool canMove = false;
     private EnemyHealth enemyHealth;
-    public float distanceToStop = 3f;
-    public float speed = 3f;
     public bool canShoot = true;
+    public EnemyStats enemyStats;
     private void Start()
     {
+        enemyStats = GetComponent<EnemyStats>();
         enemyHealth = GetComponent<EnemyHealth>();
         coll = GetComponent<Collider2D>();
         coll.enabled = false;
@@ -31,15 +29,15 @@ public class EnemyAiTurret : MonoBehaviour
         {
             GetTarget();
         }
-        if (!target)
+        else if (!target)
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= 6f)
+        else if (Vector2.Distance(target.position, transform.position) <= 6f)
         {
             coll.enabled = true;
         }
-        if (Vector2.Distance(target.position, transform.position) <= 7f && enemyHealth.canMove && canMove)
+        else if (Vector2.Distance(target.position, transform.position) <= 7f && enemyHealth.canMove && canMove)
         {
             Invoke("Move", 2f);
         }
@@ -48,7 +46,7 @@ public class EnemyAiTurret : MonoBehaviour
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= distanceToShoot && canShoot 
+        else if (Vector2.Distance(target.position, transform.position) <= enemyStats.distanceToShoot && canShoot
             && !PauseMenu.isPaused && !LoadingScreeen.loadingScreenON)
         {
             Shoot();
@@ -72,7 +70,7 @@ public class EnemyAiTurret : MonoBehaviour
             }
 
 
-            timeToFire = fireRate;
+            timeToFire = enemyStats.fireRate;
         }
         else
         {
@@ -83,9 +81,9 @@ public class EnemyAiTurret : MonoBehaviour
     {
         if (target != null)
         {
-            if (Vector2.Distance(target.position, transform.position) >= distanceToStop)
+            if (Vector2.Distance(target.position, transform.position) >= enemyStats.distanceToStop)
             {
-                transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, enemyStats.moveSpeed * Time.deltaTime);
             }
         }
 
@@ -106,5 +104,5 @@ public class EnemyAiTurret : MonoBehaviour
         }
 
     }
-    
+
 }

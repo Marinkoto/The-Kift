@@ -4,16 +4,16 @@ using UnityEngine;
 public class EnemyTank : MonoBehaviour
 {
     public Transform target;
-    public float speed = 3f;
-    public int damage;
     private Collider2D coll;
     public ParticleSystem particles;
     private EnemyHealth enemyHealth;
     public bool selfDestroyed;
     bool canDamage = true;
     public LayerMask playerMask;
+    public EnemyStats enemyStats;
     private void Start()
     {
+        enemyStats = GetComponent<EnemyStats>();
         coll = GetComponent<Collider2D>();
         enemyHealth = GetComponent<EnemyHealth>();
         coll.enabled = false;
@@ -54,25 +54,25 @@ public class EnemyTank : MonoBehaviour
     {
         if (target != null)
         {
-             transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime); 
+             transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, enemyStats.moveSpeed * Time.deltaTime); 
         }
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out PlayerHealth player) && selfDestroyed )
+        if (collision.gameObject.TryGetComponent(out PlayerHealth player) && selfDestroyed && player.canGetHit)
         {
-            player.TakeDamage(damage);
+            player.TakeDamage(enemyStats.damage);
             coll.enabled = false;
             Instantiate(particles, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else if(!selfDestroyed)
+        else if(!selfDestroyed && player.canGetHit)
         {
             if (canDamage)
             {
                 
-                player.TakeDamage(damage);
+                player.TakeDamage(enemyStats.damage);
                 StartCoroutine(DamageBool());
             }
             Instantiate(particles, transform.position, Quaternion.identity);

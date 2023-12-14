@@ -16,7 +16,7 @@ public class LoadGameAndQuit : MonoBehaviour
     }
     public void EnterGame(int indexOfScene)
     {
-        if (!SkinManager.isBlack && !SkinManager.isOrange)
+        if (SkinManager.equippedSkins == string.Empty)
         {
             message.text = "You need to select a skin in the shop";
             return;

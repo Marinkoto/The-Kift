@@ -15,21 +15,16 @@ public class Bullet : MonoBehaviour
     public GameObject beenStruck;
     public int amountToChain;
     public bool chainsLightning = false;
-    public bool canBeDestroyedBySelf;
     public AudioClip classHitWallSound;
+    public bool canDestroyEnemyBullets;
+
     private void Update()
     {
-          Destroy(gameObject,6f);
+        Destroy(gameObject, 6f);
     }
     //for enemies which have colliders that are triggers
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet") && canBeDestroyedBySelf)
-        {
-            Destroy(gameObject);
-            Instantiate(hitEffect, transform.position, Quaternion.identity);
-            AudioManager.instance.PlaySFX(classHitWallSound);
-        }
         if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
         {
             AudioManager.instance.PlayHitSFX(AudioManager.instance.enemyHit);
@@ -63,14 +58,8 @@ public class Bullet : MonoBehaviour
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             AudioManager.instance.PlaySFX(classHitWallSound);
         }
-        if (collision.gameObject.CompareTag("Bullet") && canBeDestroyedBySelf)
-        {
-            Destroy(gameObject);
-            Instantiate(hitEffect, transform.position, Quaternion.identity);
-            AudioManager.instance.PlaySFX(classHitWallSound);
-        }
         //lightning chain 
-        if (chainsLightning && collision.gameObject.tag == "Enemy")
+        else if (chainsLightning && collision.gameObject.tag == "Enemy")
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.shootLightning);
             AudioManager.instance.PlayHitSFX(AudioManager.instance.shootLightning);
@@ -81,7 +70,7 @@ public class Bullet : MonoBehaviour
             chainLightningEffect.GetComponent<ChainLightning>().amountToChain = amountToChain;
             Instantiate(chainLightningEffect, collision.transform.position, Quaternion.identity);
             Destroy(gameObject);
-            
+
         }
 
         //destroy when hit wall
@@ -91,20 +80,20 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             AudioManager.instance.PlaySFX(classHitWallSound);
         }
-        if (collision.gameObject.TryGetComponent<Item>(out Item item) && !item.nonDestructible)
+        else if (collision.gameObject.TryGetComponent<Item>(out Item item) && !item.nonDestructible)
         {
             Destroy(collision.gameObject);
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Items")
+        else if (collision.gameObject.tag == "Items")
         {
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
             AudioManager.instance.PlaySFX(classHitWallSound);
         }
         //enemy take damage after all
-        if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
+        else if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
         {
             AudioManager.instance.PlayHitSFX(AudioManager.instance.enemyHit);
             FindObjectOfType<HitStop>().HitStopEffect(0.02f);
@@ -113,11 +102,11 @@ public class Bullet : MonoBehaviour
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag=="EnemyBullet")
+        else if (collision.gameObject.tag == "EnemyBullet" && canDestroyEnemyBullets)
         {
             Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
-        } 
+        }
     }
     public void ShakeCamera()
     {
@@ -126,5 +115,5 @@ public class Bullet : MonoBehaviour
             CameraShake.instance.ShakeCamera(.21f, 0.5f);
         }
     }
-   
+
 }

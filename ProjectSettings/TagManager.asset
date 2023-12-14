@@ -16,7 +16,7 @@ TagManager:
   - DamagePopUp
   - Bullet Counter
   - Boss
-  - Portal
+  - Quest
   layers:
   - Default
   - TransparentFX
@@ -24,8 +24,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Minimap
+  - Dungeon
   - Player
   - Enemy
   - Bullet
@@ -62,4 +62,7 @@ TagManager:
     locked: 0
   - name: Front
     uniqueID: 1619589477
+    locked: 0
+  - name: Minimap
+    uniqueID: 2289679063
     locked: 0

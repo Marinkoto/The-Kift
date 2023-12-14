@@ -11,6 +11,6 @@ public class EnemyBossFly : MonoBehaviour
     }
     private void OnDestroy()
     {
-        weapon.flyCount--;
+        weapon.gadgetCount--;
     }
 }

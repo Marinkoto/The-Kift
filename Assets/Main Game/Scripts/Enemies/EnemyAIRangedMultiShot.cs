@@ -9,12 +9,9 @@ using System;
 public class EnemyAIRangedMultiShot : MonoBehaviour
 {
     public Transform target;
-    public float speed = 3f;
-    public static EnemyAIRanged instance; 
-    public float distanceToShoot = 5f;
-    public float distanceToStop = 3f;
+    public static EnemyAIRanged instance;
+    public EnemyStats enemyStats;
     public Transform[] firingPoints;
-    public float fireRate;
     private float timeToFire;
     public GameObject bullet;
     public Transform rotatePoint;
@@ -22,6 +19,7 @@ public class EnemyAIRangedMultiShot : MonoBehaviour
     private Collider2D coll;
     private void Start()
     {
+        enemyStats = GetComponent<EnemyStats>();
         enemyHealth = GetComponent<EnemyHealth>();
         coll = GetComponent<Collider2D>();
         coll.enabled = false;
@@ -33,15 +31,15 @@ public class EnemyAIRangedMultiShot : MonoBehaviour
         {
             GetTarget();
         }
-        if (!target)
+        else if (!target)
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= 7f)
+        else if (Vector2.Distance(target.position, transform.position) <= 7f)
         {
             coll.enabled = true;
         }
-        if (Vector2.Distance(target.position, transform.position) <= 6f && enemyHealth.canMove )
+        else if (Vector2.Distance(target.position, transform.position) <= 6f && enemyHealth.canMove )
         {
             Invoke("Move", 3f);
         }
@@ -50,12 +48,11 @@ public class EnemyAIRangedMultiShot : MonoBehaviour
         {
             return;
         }
-        if (Vector2.Distance(target.position, transform.position) <= distanceToShoot && 
+        else if (Vector2.Distance(target.position, transform.position) <= enemyStats.distanceToShoot && 
             !PauseMenu.isPaused && !LoadingScreeen.loadingScreenON)
         {
             Invoke("Shoot", 1f);
         }
-        
     }
     private void GetTarget()
     {
@@ -77,7 +74,7 @@ public class EnemyAIRangedMultiShot : MonoBehaviour
             }
            
 
-            timeToFire = fireRate;
+            timeToFire = enemyStats.fireRate;
         }
         else
         {
@@ -88,9 +85,9 @@ public class EnemyAIRangedMultiShot : MonoBehaviour
     {
         if (target!=null)
         {
-            if (Vector2.Distance(target.position, transform.position) >= distanceToStop)
+            if (Vector2.Distance(target.position, transform.position) >= enemyStats.distanceToStop)
             {
-                transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, enemyStats.moveSpeed * Time.deltaTime);
             }
         }
            

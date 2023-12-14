@@ -108,7 +108,9 @@ MonoBehaviour:
   beenStruck: {fileID: 1652843135111778745, guid: 65c5986652c87d34aa39aa33eee0756c, type: 3}
   amountToChain: 3
   chainsLightning: 1
+  canBeDestroyedBySelf: 0
   classHitWallSound: {fileID: 8300000, guid: 45f3dece9057fe3458f3f36148af76b0, type: 3}
+  canDestroyEnemyBullets: 1
 --- !u!95 &8606436385413160671
 Animator:
   serializedVersion: 5

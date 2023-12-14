@@ -73,13 +73,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6333342816524987220}
   - component: {fileID: 6333342816524987223}
-  - component: {fileID: 103653059904940417}
   - component: {fileID: 6333342816524987222}
   - component: {fileID: 6333342816524987221}
   - component: {fileID: 6333342816524987211}
   - component: {fileID: -7133860609126878944}
   - component: {fileID: 1905138099767522992}
   - component: {fileID: -6706241025018920977}
+  - component: {fileID: 4900371657885482094}
   m_Layer: 9
   m_Name: Boss Fly
   m_TagString: Boss
@@ -155,21 +155,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &103653059904940417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6333342816524987216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da64bf18cc7e5d644b4c5077ca6f5de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 901039773043856064, guid: 659a008fdeb684a478c5d4aa82eb3ee6, type: 3}
-  lootList:
-  - {fileID: 11400000, guid: 5f2752beeeeeae84cb44a3b3be82f3eb, type: 2}
 --- !u!95 &6333342816524987222
 Animator:
   serializedVersion: 5
@@ -204,13 +189,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 2.5
-  distanceToShoot: 6
-  distanceToStop: 5
   firingPoint: {fileID: 130010459666100613}
-  fireRate: 0.75
   bullet: {fileID: 496967885895071457, guid: 4b7b99915ee808941bf199b702755a7e, type: 3}
   rotatePoint: {fileID: 6333342815216044414}
+  enemyStats: {fileID: 4900371657885482094}
 --- !u!114 &6333342816524987211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,10 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b9f98418ed3e4f9306d609cc71399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  maxHealth: 50
-  boundHealth: 50
   matWhite: {fileID: 2100000, guid: e3d9a28ca504a9c4284b986fd9faa7ff, type: 2}
+  enemyStats: {fileID: 4900371657885482094}
   lootPrefab: {fileID: 6523960941471899613, guid: ebf528df75dbff546945525f10b895c0, type: 3}
   floatingTextPrefab: {fileID: 6719426965618277448, guid: a62bc3918eaf5834faae8e8f8f52191a, type: 3}
   canMove: 1
@@ -291,3 +271,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+--- !u!114 &4900371657885482094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6333342816524987216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9883db3076ca243951cd93b2735d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 15
+  damage: 12
+  moveSpeed: 2.5
+  distanceToShoot: 6
+  distanceToStop: 5
+  fireRate: 0.75
+  health: 175
+  maxHealth: 175
+  boundHealth: 175

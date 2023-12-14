@@ -7,7 +7,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip currentMusic;
     private void Start()
     {
-        AudioManager.instance.musicSource.clip = currentMusic;
-        AudioManager.instance.musicSource.Play();
+        AudioManager.instance.MusicSource.clip = currentMusic;
+        AudioManager.instance.MusicSource.Play();
     }
 }

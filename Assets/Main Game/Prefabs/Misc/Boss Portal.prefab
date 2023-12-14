@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 3952152622149135438}
   - component: {fileID: 3952152622149135443}
   - component: {fileID: 925922402133228153}
-  - component: {fileID: 5617441767271360607}
   m_Layer: 0
   m_Name: Boss Portal
   m_TagString: Portal
@@ -250,19 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e995a9621c099774caf40811ed45488c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5617441767271360607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3952152622149135432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972955b759ee8f843b314beeeeff8cce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seconds: 120
 --- !u!1 &3952152622429250146
 GameObject:
   m_ObjectHideFlags: 0
