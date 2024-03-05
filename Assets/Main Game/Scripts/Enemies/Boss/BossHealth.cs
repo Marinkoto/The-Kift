@@ -19,6 +19,7 @@ public class BossHealth : MonoBehaviour
     public Transform room;
     public BossHealthBar healthBar;
     public string bossName;
+    public GameObject dialogueTrigger;
     bool killed;
     private void Awake()
     {
@@ -65,6 +66,7 @@ public class BossHealth : MonoBehaviour
         healthBar.DisableBar();
         healthBar.dungeonInfoUI.SetActive(true);
         QuestManager.instance.BossKilled();
+        dialogueTrigger.SetActive(true);
         killed = true;
     }
     public void OnCollisionEnter2D(Collision2D collision)

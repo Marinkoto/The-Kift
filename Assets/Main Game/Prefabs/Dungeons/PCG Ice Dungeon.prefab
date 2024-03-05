@@ -10637,6 +10637,7 @@ Transform:
   - {fileID: 3872649257535773016}
   - {fileID: 2271017151279980512}
   - {fileID: 5073147634441365253}
+  - {fileID: 1899927814603728902}
   m_Father: {fileID: 5679274849243399398}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10880,6 +10881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5679274849243399398}
   - component: {fileID: 532862166022259010}
+  - component: {fileID: 3737715711677328930}
   m_Layer: 7
   m_Name: PCG Ice Dungeon
   m_TagString: PCG
@@ -10925,13 +10927,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dbd2e67b9372c747ad644132d978adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeons:
-  - {fileID: 186861966862249340, guid: d7450efeb1cc07c4695199ddc30a9ec2, type: 3}
+  dungeon: {fileID: 186861966862249340, guid: d7450efeb1cc07c4695199ddc30a9ec2, type: 3}
   dungeonNumber: 1
   player: {fileID: 0}
   bossRoom: {fileID: 4718271155741491447}
   bossFightPosition: {fileID: 3872649257535773016}
   boss: {fileID: 6596869843643041374}
+  dialogueTrigger: {fileID: 0}
+--- !u!114 &3737715711677328930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033930733592909855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc212cd4178e8f4c9165374b2372f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: d15d8680616ed1c4ba1cbc6ac82550a8, type: 2}
+  storyManager: {fileID: 0}
 --- !u!1 &5422965224077107700
 GameObject:
   m_ObjectHideFlags: 0
@@ -42709,6 +42725,7 @@ GameObject:
   - component: {fileID: 743998525608994525}
   - component: {fileID: 3644240144175399793}
   - component: {fileID: 2885979038910195490}
+  - component: {fileID: 451343292312418194}
   m_Layer: 7
   m_Name: Frog
   m_TagString: Boss
@@ -42837,6 +42854,7 @@ MonoBehaviour:
   room: {fileID: 8970569844490654091}
   healthBar: {fileID: 6888579116172599538}
   bossName: Roggi
+  dialogueTrigger: {fileID: 7969513524497665748}
 --- !u!95 &5079376926630277715
 Animator:
   serializedVersion: 5
@@ -42918,6 +42936,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+--- !u!114 &451343292312418194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6596869843643041374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9026be2651b783d4b801d5ba27c01421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 47c244b8be74bbf44aec56483461b1a5, type: 2}
+  storyManager: {fileID: 0}
+  animator: {fileID: 5079376926630277715}
+  behaviours:
+  - {fileID: 2885979038910195490}
+  - {fileID: 7443244913193526966}
+  - {fileID: 3616098698769944340}
+  - {fileID: 953881861078743183}
+  - {fileID: 5054663486562040999}
+  - {fileID: 445118091199011253}
+  - {fileID: 2949404130454431902}
+  - {fileID: 7208155084637681286}
 --- !u!1 &6702108320551314346
 GameObject:
   m_ObjectHideFlags: 0
@@ -44085,6 +44127,52 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &7969513524497665748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1899927814603728902}
+  - component: {fileID: 6726304856105479088}
+  m_Layer: 0
+  m_Name: 'Dialogue Trigger '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1899927814603728902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7969513524497665748}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -275.03, y: 7.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8970569844490654091}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6726304856105479088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7969513524497665748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc212cd4178e8f4c9165374b2372f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 7cb058beb688f5846ace9c6a39f24469, type: 2}
+  storyManager: {fileID: 0}
 --- !u!1 &8037097839517329957
 GameObject:
   m_ObjectHideFlags: 0

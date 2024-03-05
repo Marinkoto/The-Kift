@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Portal : MonoBehaviour
 {
@@ -8,11 +9,9 @@ public class Portal : MonoBehaviour
     public TextMeshProUGUI interactText;
     private bool isPressed;
     private bool didPress;
-    public StoryManager storyManager;
-    public Dialogue dialogue;
+    public GameObject dialogueTrigger;
     private void Start()
     {
-        storyManager = GameObject.Find("Story Manager").GetComponent<StoryManager>();
         interactText = GameObject.Find("Interact Text").GetComponent<TextMeshProUGUI>();
         isPlayerClose = false;
         isPressed = false;
@@ -20,17 +19,20 @@ public class Portal : MonoBehaviour
     }
     private void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.E) && isPlayerClose && !isPressed)
         {
             didPress = true;
             isPressed = false;
             EnterPortal();
             StartCoroutine(StopTime());
+            interactText.text = "";
         }
         else if(didPress)
         {
             isPressed = true;
         }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,13 +40,14 @@ public class Portal : MonoBehaviour
         {
             interactText.text = "Press E to interact";
             isPlayerClose = true;
-            storyManager.StartDialogue(dialogue);
+            dialogueTrigger.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            dialogueTrigger.SetActive(false);
             isPlayerClose = false;
             interactText.text = string.Empty;
         }
@@ -62,7 +65,6 @@ public class Portal : MonoBehaviour
     public void EnterPortal()
     {
         PlayerStats.instance.Invoke("ActivateUI", 0.3f);
-        Cursor.visible = true;
         AudioManager.instance.PlaySFX(AudioManager.instance.enterPortal);
         PlayerStats.instance.currentClip = PlayerStats.instance.maxClipSize;
         isPressed = false;

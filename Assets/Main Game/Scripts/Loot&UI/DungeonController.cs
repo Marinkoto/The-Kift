@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class DungeonController : MonoBehaviour
 {
-    public GameObject[] dungeons;
+    public GameObject dungeon;
     public int dungeonNumber = 1;
     public Transform player;
     public GameObject bossRoom;
     public Transform bossFightPosition;
     private bool didStart = false;
     public GameObject boss;
+    public DialogueTrigger dialogueTrigger;
     public void IncreaseDungeon()
     {
         dungeonNumber++;
@@ -18,6 +19,7 @@ public class DungeonController : MonoBehaviour
     private void Start()
     {
         didStart = false;
+        dialogueTrigger.gameObject.SetActive(true);
     }
     private void Update()
     {
@@ -29,16 +31,15 @@ public class DungeonController : MonoBehaviour
             {
                 Invoke("SetPositon", 4f);
                 didStart = true;
+                
             }
         }
         if (dungeonNumber == 6)
         {
-            int index = Random.Range(0, dungeons.Length);
-            Instantiate(dungeons[index],transform.position,Quaternion.identity);
+            Instantiate(dungeon, transform.position, Quaternion.identity);
             dungeonNumber = 1;
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
         }
-        
     }
 
     public void SetPositon()
@@ -47,5 +48,5 @@ public class DungeonController : MonoBehaviour
         boss.SetActive(true);
         CameraShake.instance.ChangeFOV(true);
     }
-
+    
 }

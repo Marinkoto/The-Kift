@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d670d5b965b2d44e8b58751afcc6392, type: 3}
+  m_Name: Goly Death
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 4f229d8e5f319264a96d603598849aa1, type: 3}
+  dialogueLines:
+  - speaker: Mighty God
+    text: That can't be.
+    options: []
+  - speaker: Mighty God
+    text: I was defeated.
+    options: []
+  - speaker: Mighty God
+    text: What will happen now you won't like it.
+    options: []
+  - speaker: Mighty God
+    text: I will destroy everything except you that's alwful.
+    options: []
+  - speaker: Mighty God
+    text: This place was built 1.5 million years ago and it was an idea by the god
+      of the universe himself. He told me if somebody completes this I should send
+      them to him.
+    options: []
+  - speaker: Mighty God
+    text: And destroy this place. So now after you enter this portal everything ends.
+      I hope you break the curse because I was once a normal person too and a witch
+      cursed me.
+    options: []
+  - speaker: Mighty God
+    text: I wanted a succesful life and a witch gave me a pill and I swallowed it
+      and got teleported here.
+    options: []
+  - speaker: Mighty God
+    text: My body became rock solid as you saw me now.
+    options: []
+  - speaker: Mighty God
+    text: Enough talking proceed to the portal for further adventures.
+    options: []
+  - speaker: Marinko
+    text: To be continued...
+    options: []

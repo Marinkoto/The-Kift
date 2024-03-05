@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d670d5b965b2d44e8b58751afcc6392, type: 3}
+  m_Name: Enter Dialogue (Ice Dungeon)
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 8d56f7f37fa2a5e4d8e486809a049a4f, type: 3}
+  dialogueLines:
+  - speaker: ???
+    text: Hello, you made it!!
+    options: []
+  - speaker: ???
+    text: The Boar Dimension was easy right?
+    options:
+    - optionText: Pretty much.
+      nextLineIdentifier: 1
+  - speaker: ???
+    text: He claims he is the best when it comes to combat but he is just a big boar...
+    options: []
+  - speaker: ???
+    text: Nothing much to expect... So how do you got in this world?
+    options:
+    - optionText: I was just looking for fish and a wizard gave me a cursed fish.
+      nextLineIdentifier: 2
+    - optionText: I got cursed!
+      nextLineIdentifier: 3
+    - optionText: Long story...
+      nextLineIdentifier: 4
+  - speaker: ???
+    text: So do you feel brave enough to conquer this dimension?
+    options: []
+  - speaker: ???
+    text: Because it's more difficult than the boring Boar one!
+    options: []
+  - speaker: ???
+    text: You will have to fight creatures with amazing reflexes and abilities.
+    options: []
+  - speaker: ???
+    text: And finally defeat me to allow you to proceed even further...
+    options: []
+  - speaker: ???
+    text: If you want to demolish this curse you will have to beat 3 dimensions!
+    options: []
+  - speaker: ???
+    text: You beated one of them so now there is this one and the next one left!
+    options: []
+  - speaker: ???
+    text: I can't deny it, it won't be easy!
+    options:
+    - optionText: Not a challenge!
+      nextLineIdentifier: 5
+    - optionText: I got this! (*Murr*)
+      nextLineIdentifier: 6
+  - speaker: ???
+    text: Wish you luck!
+    options:
+    - optionText: And will you reveal yourself now?
+      nextLineIdentifier: 7
+    - optionText: Can you introduce yourself!
+      nextLineIdentifier: 8
+    - optionText: Who are you?
+      nextLineIdentifier: 9
+  - speaker: ???
+    text: You will find out later or sooner!
+    options:
+    - optionText: Ugh...
+      nextLineIdentifier: 10

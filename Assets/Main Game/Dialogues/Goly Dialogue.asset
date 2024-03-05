@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d670d5b965b2d44e8b58751afcc6392, type: 3}
+  m_Name: Goly Dialogue
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 4f229d8e5f319264a96d603598849aa1, type: 3}
+  dialogueLines:
+  - speaker: Mighty God
+    text: Wow you made it. Good job!
+    options: []
+  - speaker: Mighty God
+    text: So now you know what will happen right?
+    options:
+    - optionText: You will get defeated of course!
+      nextLineIdentifier: 1
+  - speaker: Mighty God
+    text: Oh okay I like you.
+    options: []
+  - speaker: Mighty God
+    text: We will have to duel and only the best should win...
+    options: []
+  - speaker: Mighty God
+    text: If you defeat me which won't happen there will be more to the curse than
+      just that.
+    options:
+    - optionText: How do you know I am cursed?
+      nextLineIdentifier: 2
+  - speaker: Mighty God
+    text: I know everything.
+    options:
+    - optionText: So what's you real name.
+      nextLineIdentifier: 3
+  - speaker: Mighty God
+    text: Goly but everyone refers me as a Mighty God.
+    options: []
+  - speaker: Mighty God
+    text: Enough talking let's get it started.
+    options: []

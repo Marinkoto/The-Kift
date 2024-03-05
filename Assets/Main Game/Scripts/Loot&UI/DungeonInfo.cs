@@ -45,6 +45,8 @@ public class DungeonInfo : MonoBehaviour
         endScreenWin.SetActive(true);
         dungeonLevel++;
         Cursor.visible = true;
+        DungeonManager.instance.IncreaseCount();
+        DungeonManager.instance.Load();
         Invoke("StopTime" , 0.49f);
     }
     public void EnableLoseScreen(int tokens)

@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d670d5b965b2d44e8b58751afcc6392, type: 3}
+  m_Name: Boar Death
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: c7855864ad62de948bbdfd2a0560f3f1, type: 3}
+  dialogueLines:
+  - speaker: Boar King
+    text: How...
+    options: []
+  - speaker: Boar King
+    text: Could it be you...
+    options: []
+  - speaker: Boar King
+    text: I can't imagine I lost... All the hardwork that I have put to has gone
+      to waste...
+    options: []
+  - speaker: Boar King
+    text: The mighty gods of this place say that once the current leader is defeated
+      the warrior that got the victory becomes the leader.
+    options:
+    - optionText: Wow really? I am the founder now! (*Meow*)
+      nextLineIdentifier: 1
+  - speaker: Boar King
+    text: Ohh...
+    options: []
+  - speaker: Boar King
+    text: The day has come!
+    options:
+    - optionText: ???
+      nextLineIdentifier: 2
+    - optionText: What day?
+      nextLineIdentifier: 3
+  - speaker: Boar King
+    text: The day I give my crown to somebody else...
+    options:
+    - optionText: Yay a crown!
+      nextLineIdentifier: 4
+  - speaker: Boar King
+    text: Ok so now comes the fun part, you see this portal right?
+    options:
+    - optionText: Bright as the sun!
+      nextLineIdentifier: 5
+    - optionText: My eyesight is good.
+      nextLineIdentifier: 6
+    - optionText: Of course! (*Meow*)
+      nextLineIdentifier: 7
+  - speaker: Boar King
+    text: Once you enter it will take you to another dimension, but be careful the
+      creatures will be powerful...
+    options: []
+  - speaker: ???
+    text: (*Strange portal noises*)
+    options:
+    - optionText: Huh.. did you hear that sound?
+      nextLineIdentifier: 8
+  - speaker: ???
+    text: Are you ready for a challenge?(*Kwak*)
+    options:
+    - optionText: Who is that?
+      nextLineIdentifier: 9
+  - speaker: ???
+    text: It's me your friend!
+    options: []
+  - speaker: ???
+    text: Can't you guess my voice?(*Kwak*)
+    options: []
+  - speaker: ???
+    text: You mean you forgot me!!
+    options: []
+  - speaker: ???
+    text: Enter the portal we will have a talk later!!
+    options:
+    - optionText: Ok but promise me you will tell me who you are!
+      nextLineIdentifier: 10
+  - speaker: ???
+    text: Promise.(*Kwak*)
+    options: []

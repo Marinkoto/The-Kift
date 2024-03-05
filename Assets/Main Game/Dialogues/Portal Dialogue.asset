@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d670d5b965b2d44e8b58751afcc6392, type: 3}
+  m_Name: Portal Dialogue
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: c7855864ad62de948bbdfd2a0560f3f1, type: 3}
+  dialogueLines:
+  - speaker: Boar King
+    text: That's what I was talking about. You have to enter it but beware once you
+      reach a certain floor I will teleport you to my room!
+    options:
+    - optionText: 'Of course... '
+      nextLineIdentifier: 1

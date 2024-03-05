@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d670d5b965b2d44e8b58751afcc6392, type: 3}
+  m_Name: Frog Dialogue
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 8d56f7f37fa2a5e4d8e486809a049a4f, type: 3}
+  dialogueLines:
+  - speaker: ???
+    text: It's...you?
+    options:
+    - optionText: Ohh so that's what happened!
+      nextLineIdentifier: 1
+    - optionText: I see what you have done!
+      nextLineIdentifier: 2
+  - speaker: Roggi
+    text: Good meeting you old friend!
+    options:
+    - optionText: Pleasure meeting you again!
+      nextLineIdentifier: 3
+  - speaker: Roggi
+    text: So how did you got here?
+    options:
+    - optionText: Long story.
+      nextLineIdentifier: 4
+  - speaker: Roggi
+    text: I want to hear if you allow me!
+    options:
+    - optionText: So I wanted to eat fish but it was cursed and blacked out and woke
+        up here!
+      nextLineIdentifier: 5
+    - optionText: I got cursed by a wizard!
+      nextLineIdentifier: 6
+  - speaker: Roggi
+    text: So that's what happened!
+    options: []
+  - speaker: Roggi
+    text: May I tell you my story?
+    options:
+    - optionText: Yes.
+      nextLineIdentifier: 7
+    - optionText: All in ears!
+      nextLineIdentifier: 8
+  - speaker: Roggi
+    text: So I was once a fly but the Boar King defeated me and offered me to be
+      the founder of this realm. And transformed me to be the one I am today.
+    options:
+    - optionText: Realm?
+      nextLineIdentifier: 9
+  - speaker: Roggi
+    text: Yes some call them realms some dungeons I like using realms.
+    options: []
+  - speaker: Roggi
+    text: And lets continue the story. And I agreed to the offer and I became the
+      founder here.
+    options: []
+  - speaker: Roggi
+    text: Used iced because it was easy constructing with it.
+    options: []
+  - speaker: Roggi
+    text: The creatures just randomly one day appeared from one portal and they told
+      me they got cursed too.
+    options: []
+  - speaker: Roggi
+    text: So if you get defeated you will probably become a guardian here forever.
+    options:
+    - optionText: That's alwful...
+      nextLineIdentifier: 10
+  - speaker: Roggi
+    text: Yeah but back to the point. Are you ready for a duel?
+    options: []

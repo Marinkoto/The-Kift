@@ -48,7 +48,6 @@ public class ClassesHandler : MonoBehaviour
         isClassSelected = true;
         bulletIcons[3].SetActive(true);
         classSelected = smgClass.gameObject.transform;
-        Cursor.visible = false;
         Camera.followTransform = classSelected.transform;
         CameraFollow.Instance.Setup(() => Camera.followTransform.position, () => 7f, true, true);
         minimapIcon.SetActive(true);
@@ -58,7 +57,6 @@ public class ClassesHandler : MonoBehaviour
         isClassSelected = true;
         bulletIcons[1].SetActive(true);
         classSelected = fishClass.gameObject.transform;
-        Cursor.visible = false;
         Camera.followTransform = classSelected.transform;
         CameraFollow.Instance.Setup(() => Camera.followTransform.position, () => 7f, true, true);
         minimapIcon.SetActive(true);
@@ -68,7 +66,6 @@ public class ClassesHandler : MonoBehaviour
         isClassSelected = true;
         bulletIcons[2].SetActive(true);
         classSelected = mageClass.gameObject.transform;
-        Cursor.visible = false;
         Camera.followTransform = classSelected.transform;
         CameraFollow.Instance.Setup(() => Camera.followTransform.position, () => 7f, true, true);
         minimapIcon.SetActive(true);
@@ -77,7 +74,6 @@ public class ClassesHandler : MonoBehaviour
     {
         isClassSelected = true;
         classSelected = axeMasterClass.gameObject.transform;
-        Cursor.visible = false;
         Camera.followTransform = classSelected.transform;
         CameraFollow.Instance.Setup(() => Camera.followTransform.position, () => 7f, true, true);
         minimapIcon.SetActive(true);

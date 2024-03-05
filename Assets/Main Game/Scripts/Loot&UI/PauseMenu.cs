@@ -29,7 +29,6 @@ public class PauseMenu : MonoBehaviour
             if (isPaused)
             {
                 ResumeGame();
-                EnableCrosshair();
                 EnableHealthBar();
                 EnableEXPBar();
                 bulletCounter.SetActive(true);
@@ -37,9 +36,9 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 PauseGame();
-                DisableCrosshair();
                 DisableHealthBar();
                 DisableEXPBar();
+                crosshair.SetActive(false) ;
                 bulletCounter.SetActive(false);
                 
             }
@@ -70,17 +69,9 @@ public class PauseMenu : MonoBehaviour
         statText.gameObject.SetActive(false);
         pauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
-        Cursor.visible = false;
         isPaused = false;
         questMenu.SetActive(false);
-    }
-    public void DisableCrosshair()
-    {
-        crosshair.SetActive(false);
-    }
-    public void EnableCrosshair()
-    {
-        crosshair.SetActive(true);
+        Cursor.visible = false;
     }
     public void DisableHealthBar()
     {

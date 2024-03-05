@@ -17,6 +17,8 @@ TagManager:
   - Bullet Counter
   - Boss
   - Quest
+  - Portal
+  - Story Manager
   layers:
   - Default
   - TransparentFX

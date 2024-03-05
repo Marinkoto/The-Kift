@@ -135,6 +135,8 @@ GameObject:
   m_Component:
   - component: {fileID: 186861966862249341}
   - component: {fileID: 603184898770517684}
+  - component: {fileID: 6103291545199913510}
+  - component: {fileID: 8775988986862429381}
   m_Layer: 7
   m_Name: PCG OuterWorld
   m_TagString: PCG
@@ -180,13 +182,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dbd2e67b9372c747ad644132d978adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeons:
-  - {fileID: 5033930733592909855, guid: 098c89137bcc3b94980faeff403fac15, type: 3}
+  dungeon: {fileID: 0}
   dungeonNumber: 1
   player: {fileID: 0}
   bossRoom: {fileID: 619464983418460535}
   bossFightPosition: {fileID: 250765225078714180}
   boss: {fileID: 3154079047653322384}
+  dialogueTrigger: {fileID: 0}
+--- !u!114 &6103291545199913510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186861966862249340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7f9a51a0d3f854682fe392aa2debdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8775988986862429381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186861966862249340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc212cd4178e8f4c9165374b2372f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 5687ed534b0f61c468ba68ad636ba6f5, type: 2}
+  storyManager: {fileID: 0}
 --- !u!1 &186861967109486509
 GameObject:
   m_ObjectHideFlags: 0
@@ -17829,9 +17857,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 15
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 1
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -17839,9 +17867,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 15
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 1
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -17849,9 +17877,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 15
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 1
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -17859,9 +17887,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 15
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 1
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -17869,9 +17897,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 15
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 1
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -17879,9 +17907,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 15
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 1
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -17889,9 +17917,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 15
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 1
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -17899,9 +17927,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 15
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 1
+      m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -18009,9 +18037,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 13
-      m_TileSpriteIndex: 14
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 3
+      m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -18069,9 +18097,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 13
-      m_TileSpriteIndex: 14
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 3
+      m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -18149,9 +18177,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 13
-      m_TileSpriteIndex: 14
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 3
+      m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -18239,9 +18267,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 13
-      m_TileSpriteIndex: 14
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 3
+      m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -18299,9 +18327,9 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 13
-      m_TileSpriteIndex: 14
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 3
+      m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -21084,11 +21112,11 @@ Tilemap:
     m_Data: {fileID: 4023018930920339469, guid: a0d3fbbc155eb404a87f827b40a48dfe, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 5
+    m_Data: {fileID: 0}
   - m_RefCount: 8
     m_Data: {fileID: 0}
   - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 5
     m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 0}
@@ -21114,14 +21142,14 @@ Tilemap:
   m_TileColorArray:
   - m_RefCount: 774
     m_Data: {r: 1, g: 1, b: 1, a: 1}
-  - m_RefCount: 8
-    m_Data: {r: 0.7391875, g: 0.30964574, b: 0.4296875, a: 1}
-  - m_RefCount: 0
-    m_Data: {r: 4.202e-41, g: 4.202e-41, b: 4.202e-41, a: 4.202e-41}
   - m_RefCount: 5
-    m_Data: {r: 0.802905, g: 0.45294937, b: 0.46790108, a: 1}
+    m_Data: {r: 0.92036647, g: 0.40305486, b: 0.46838287, a: 1}
+  - m_RefCount: 8
+    m_Data: {r: 0.9818739, g: 0.56987125, b: 0.6468687, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 4.2064e-41, g: 4.2064e-41, b: 4.2064e-41, a: 4.2064e-41}
   - m_RefCount: 1
-    m_Data: {r: 0.9374502, g: 0.63546383, b: 0.70915926, a: 1}
+    m_Data: {r: 0.9239338, g: 0.47380432, b: 0.50834054, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -22315,6 +22343,7 @@ Transform:
   - {fileID: 8297353209922959701}
   - {fileID: 433614457663285121}
   - {fileID: 250765225078714180}
+  - {fileID: 6812321907045577381}
   - {fileID: 8634310561423607364}
   - {fileID: 2359980788833374032}
   m_Father: {fileID: 186861966862249341}
@@ -22398,7 +22427,7 @@ Transform:
   - {fileID: 1860182064972257211}
   - {fileID: 2236045244270880822}
   m_Father: {fileID: 3172807642979462644}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &958925276353905199
 GameObject:
@@ -22905,7 +22934,7 @@ RectTransform:
   - {fileID: 7000225720474194652}
   - {fileID: 5208339938374903926}
   m_Father: {fileID: 3172807642979462644}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -22990,6 +23019,52 @@ MonoBehaviour:
   healthCounter: {fileID: 7529421940473836497}
   bossName: {fileID: 5127277044535389316}
   dungeonInfoUI: {fileID: 0}
+--- !u!1 &1918854321154967988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6812321907045577381}
+  - component: {fileID: 8555733469058405064}
+  m_Layer: 0
+  m_Name: Dialogue Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6812321907045577381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918854321154967988}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -275.03, y: 7.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3172807642979462644}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8555733469058405064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918854321154967988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc212cd4178e8f4c9165374b2372f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: f1fec2fee21c52e44a666ed713a62eb4, type: 2}
+  storyManager: {fileID: 0}
 --- !u!1 &2176441395314754527
 GameObject:
   m_ObjectHideFlags: 0
@@ -23879,6 +23954,7 @@ GameObject:
   - component: {fileID: 5285788312695325160}
   - component: {fileID: 2067225658658729456}
   - component: {fileID: 6060833755368547059}
+  - component: {fileID: 2662424235020385342}
   m_Layer: 0
   m_Name: Goly
   m_TagString: Untagged
@@ -24028,7 +24104,8 @@ MonoBehaviour:
   floatingTextPrefab: {fileID: 6719426965618277448, guid: a62bc3918eaf5834faae8e8f8f52191a, type: 3}
   room: {fileID: 3172807642979462644}
   healthBar: {fileID: 3707604316743554136}
-  bossName: Goly
+  bossName: Mighty God
+  dialogueTrigger: {fileID: 1918854321154967988}
 --- !u!95 &5285788312695325160
 Animator:
   serializedVersion: 5
@@ -24079,6 +24156,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   isFlipped: 0
+--- !u!114 &2662424235020385342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3154079047653322384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9026be2651b783d4b801d5ba27c01421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: d5bf4af775ea8b04399dbccf5113106a, type: 2}
+  storyManager: {fileID: 0}
+  animator: {fileID: 5285788312695325160}
+  behaviours:
+  - {fileID: 2067225658658729456}
+  - {fileID: 6060833755368547059}
+  - {fileID: 2442561248478559165}
+  - {fileID: 8581976215400123923}
+  - {fileID: 6580890060194610052}
+  - {fileID: 5571488369851363969}
+  - {fileID: 2857519498834848209}
+  - {fileID: 4666086891272061387}
+  - {fileID: 7106708318534455255}
+  - {fileID: 7010318542324522585}
+  - {fileID: 3366619508982935436}
 --- !u!1 &3175617346945933434
 GameObject:
   m_ObjectHideFlags: 0

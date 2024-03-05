@@ -1,199 +1,138 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-[System.Serializable]
-public class Dialogue
-{
-    public string dialogueID;
-    [TextArea(3, 10)]
-    public string[] dialogueLines;
-    public string[] playerOptions;
-    public Dialogue[] nextDialogues; // Corresponding next dialogues based on player choice
-    public bool isCompleted;
-}
+
 public class StoryManager : MonoBehaviour
 {
+    public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public GameObject dialoguePanel;
-    public Dialogue dialogue;
     public Button[] optionButtons;
-    private Dialogue currentDialogue;
-    public List<Dialogue> allDialogues;
-    private int currentLine = 0;
-    private List<Dialogue> availableDialogues = new List<Dialogue>();
-    private const string ProgressKey = "StoryProgress";
-    private const string CompletedDialoguesKey = "CompletedDialogues";
-    public bool test;
-    private bool isAnimating;
+    public Dialogue dialogue1;
+    public bool dialogueEnded;
+    public Image icon;
 
-    void Start()
+    private Queue<Dialogue.DialogueLine> dialogueQueue;
+    private string saveKey;
+    private void Start()
     {
-        if (test)
+        // Check if the dialogue has been completed before starting
+        if (!IsDialogueCompleted(dialogue1))
         {
-            PlayerPrefs.DeleteKey(CompletedDialoguesKey);
-        }
-        dialoguePanel.SetActive(false);
-        allDialogues.Add(dialogue);
-        LoadProgress();
-        StartDialogue(availableDialogues[0]);
-    }
-    public void StartDialogue(Dialogue dialogue)
-    {
-        // Check if the dialogue is marked as completed
-        if (dialogue.isCompleted)
-        {
-            // Skip the dialogue if it's already completed
-            return;
-        }
-
-        currentDialogue = dialogue;
-        currentLine = 0;
-        DisplayDialogue();
-    }
-
-
-    void DisplayDialogue()
-    {
-        dialoguePanel.SetActive(true);
-
-        if (currentLine < currentDialogue.dialogueLines.Length)
-        {
-            dialogueText.text = currentDialogue.dialogueLines[currentLine];
-
-            if (currentLine < currentDialogue.dialogueLines.Length - 1)
-            {
-                // Wait for a short duration before displaying the next sentence
-                StartCoroutine(DisplayTextWithTypewriterEffect());
-            }
-            else
-            {
-                // Display options when all sentences are shown
-                DisplayOptions();
-            }
-
-            currentLine++; // Move to the next sentence
-        }
-    }
-    void EndDialogue()
-    {
-        dialoguePanel.SetActive(false);
-    }
-
-    void DisplayOptions()
-    {
-        for (int i = 0; i < currentDialogue.playerOptions.Length; i++)
-        {
-            optionButtons[i].gameObject.SetActive(true);
-            optionButtons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.playerOptions[i];
-
-            // Attach click listener to the option button
-            optionButtons[i].onClick.RemoveAllListeners(); // Clear previous listeners
-            optionButtons[i].onClick.AddListener(() => ChooseOption());
-        }
-
-        // Disable unused buttons
-        for (int i = currentDialogue.playerOptions.Length; i < optionButtons.Length; i++)
-        {
-            optionButtons[i].gameObject.SetActive(false);
-        }
-    }
-
-    public void ChooseOption()
-    {
-        if (currentDialogue.nextDialogues.Length > 0)
-        {
-            currentDialogue = currentDialogue.nextDialogues[0];
-            currentLine = 0;
-            foreach (Button button in optionButtons)
-            {
-                button.gameObject.SetActive(false);
-            }
-            // Display the next line of dialogue or options
-            DisplayDialogue();
-
-            // Save progress after choosing an option
-            SaveProgress();
+            StartDialogue(dialogue1);
         }
         else
         {
+            // Dialogue has been completed, you can handle this situation as needed
+            Debug.Log("Dialogue already completed.");
+        }
+    }
+
+    public void StartDialogue(Dialogue dialogue)
+    {
+        dialogueEnded = false;
+        icon.sprite = dialogue.icon;
+        PlayerStats.instance.GetComponent<PlayerMovement>().enabled = false;
+        PlayerStats.instance.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        PlayerStats.instance.GetComponent<PlayerShoot>().enabled = false;
+        PlayerStats.instance.GetComponent<PlayerHealth>().enabled = false;
+        dialogueQueue = new Queue<Dialogue.DialogueLine>(dialogue.dialogueLines);
+        dialoguePanel.SetActive(true);
+        DisplayNextLine();
+
+    }
+
+    public void DisplayNextLine()
+    {
+        if (dialogueQueue.Count == 0)
+        {
             EndDialogue();
-            Debug.LogError($"No next dialogues available for the current option.");
+            return;
         }
+
+        Dialogue.DialogueLine currentLine = dialogueQueue.Dequeue();
+
+        StopAllCoroutines();
+        StartCoroutine(TypeDialogue(currentLine));
     }
 
-    IEnumerator DisplayTextWithTypewriterEffect()
+    IEnumerator TypeDialogue(Dialogue.DialogueLine line)
     {
-        isAnimating = true;
+        nameText.text = line.speaker;
+        dialogueText.text = "";
 
-        for (int i = currentLine; i < currentDialogue.dialogueLines.Length; i++)
+        float typingSpeed = 0.03f; // Adjust the typing speed as needed
+
+        foreach (char letter in line.text.ToCharArray())
         {
-            string dialogueLine = currentDialogue.dialogueLines[i];
-
-            dialogueText.text = ""; // Clear the text before starting the effect
-
-            float typeSpeed = 0.000000000001f; // Adjust the typing speed as needed
-
-            for (int j = 0; j < dialogueLine.Length; j++)
-            {
-                dialogueText.text += dialogueLine[j];
-                yield return new WaitForSeconds(typeSpeed);
-            }
-
-            // Optionally, introduce a delay between sentences
-            yield return new WaitForSeconds(0f); // Adjust the delay as needed
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
         }
 
-        isAnimating = false;
-
-        // Display options when all sentences are shown
-        DisplayOptions();
-    }
-
-    void LoadProgress()
-    {
-        string savedProgress = PlayerPrefs.GetString(ProgressKey, "");
-        string[] completedDialogues = PlayerPrefs.GetString(CompletedDialoguesKey, "").Split(',');
-
-        foreach (Dialogue dialogue in allDialogues)
+        if (line.options != null && line.options.Count > 0)
         {
-            // Skip completed dialogues when building the list of available dialogues
-            if (!IsDialogueCompleted(dialogue.dialogueID, completedDialogues))
-            {
-                availableDialogues.Add(dialogue);
-            }
+            DisplayOptions(line.options);
+        }
+        else
+        {
+            yield return new WaitForSeconds(6); // Adjust as needed
+            DisplayNextLine();
+        }
+    }
 
-            if (dialogue.dialogueID == savedProgress && !IsDialogueCompleted(dialogue.dialogueID, completedDialogues))
+    void DisplayOptions(List<Dialogue.DialogueOption> options)
+    {
+        for (int i = 0; i < optionButtons.Length; i++)
+        {
+            if (i < options.Count)
             {
-                currentDialogue = dialogue;
-                currentLine = 0;
-                DisplayDialogue();
-                return;
+                optionButtons[i].gameObject.SetActive(true);
+                int optionIndex = i;
+                optionButtons[i].onClick.RemoveAllListeners();
+                optionButtons[i].onClick.AddListener(() => OnOptionSelected(options[optionIndex].nextLineIdentifier));
+                optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = options[optionIndex].optionText;
+            }
+            else
+            {
+                optionButtons[i].gameObject.SetActive(false);
             }
         }
     }
 
-    private void OnApplicationQuit()
+    void OnOptionSelected(string nextLineIdentifier)
     {
-        SaveProgress();
-    }
-    void SaveProgress()
-    {
-        PlayerPrefs.SetString(ProgressKey, currentDialogue.dialogueID);
+        foreach (var button in optionButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
 
-        // Mark the current dialogue as completed and save it
-        string completedDialogues = PlayerPrefs.GetString(CompletedDialoguesKey, "");
-        completedDialogues += currentDialogue.dialogueID + ",";
-        PlayerPrefs.SetString(CompletedDialoguesKey, completedDialogues);
-        availableDialogues.Remove(currentDialogue);
+        // Find the corresponding dialogue line based on the nextLineIdentifier
+        Dialogue.DialogueLine nextLine = dialogueQueue.FirstOrDefault(line => line.options != null && line.options.Any(option => option.nextLineIdentifier == nextLineIdentifier));
+        DisplayNextLine();
+    }
+
+    public void EndDialogue()
+    {
+        dialogueEnded = true;
+        dialoguePanel.SetActive(false);
+        PlayerStats.instance.GetComponent<PlayerMovement>().enabled = true;
+        PlayerStats.instance.GetComponent<PlayerShoot>().enabled = true;
+        PlayerStats.instance.GetComponent<PlayerHealth>().enabled = true;
+        PlayerStats.instance.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        // Save that the dialogue has been completed
+        PlayerPrefs.SetInt(saveKey, 1);
         PlayerPrefs.Save();
+
+        // Additional logic for ending dialogue
     }
 
-    bool IsDialogueCompleted(string dialogueID, string[] completedDialogues)
+    public bool IsDialogueCompleted(Dialogue dialogue)
     {
-        return System.Array.Exists(completedDialogues, id => id == dialogueID);
+        saveKey = "DialogueCompleted_" + dialogue.name;
+        // Check if the dialogue has been completed by looking at the saved data
+        return PlayerPrefs.GetInt(saveKey, 0) == 1;
     }
-
 }

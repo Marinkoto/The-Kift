@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d670d5b965b2d44e8b58751afcc6392, type: 3}
+  m_Name: Frog Death
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 8d56f7f37fa2a5e4d8e486809a049a4f, type: 3}
+  dialogueLines:
+  - speaker: Roggi
+    text: Wow you are strong.
+    options: []
+  - speaker: Roggi
+    text: I... I have nothing to say...
+    options: []
+  - speaker: Roggi
+    text: It was good meeting you.
+    options: []
+  - speaker: Roggi
+    text: Enter the portal to proceed further.
+    options: []
+  - speaker: Roggi
+    text: Behind is one of the strongest gods of the world it will be quite a challenge.
+    options:
+    - optionText: Not for me!
+      nextLineIdentifier: 1
+    - optionText: Im the best!
+      nextLineIdentifier: 2
+  - speaker: Roggi
+    text: I hope so. Bye friend!
+    options: []

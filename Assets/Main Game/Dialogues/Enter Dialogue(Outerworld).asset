@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d670d5b965b2d44e8b58751afcc6392, type: 3}
+  m_Name: Enter Dialogue(Outerworld)
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 4f229d8e5f319264a96d603598849aa1, type: 3}
+  dialogueLines:
+  - speaker: You
+    text: Ohh what's going on. I think its an earthquake.
+    options: []
+  - speaker: You
+    text: My head really hurts...
+    options: []
+  - speaker: Mighty God
+    text: Huh who are you?
+    options:
+    - optionText: I am a cat.
+      nextLineIdentifier: 1
+    - optionText: What do you mean.
+      nextLineIdentifier: 2
+    - optionText: Hi!
+      nextLineIdentifier: 3
+  - speaker: Mighty God
+    text: What are you doing here. How did you defeated the creators from the previous
+      worlds!
+    options:
+    - optionText: Why does everyone use different words for the dungeons
+      nextLineIdentifier: 4
+  - speaker: Mighty God
+    text: Everyone chooses how they call them.
+    options: []
+  - speaker: Mighty God
+    text: So this will be quite the challenge, im warning you because many died here
+      and they probably told you that once you die you become a guardian.
+    options: []
+  - speaker: Mighty God
+    text: There is a lot of guardians in the rooms, so what does it mean?
+    options:
+    - optionText: You are a killer!
+      nextLineIdentifier: 5
+  - speaker: Mighty God
+    text: Not quite right but I can approve that a lot challenged me and failed to
+      defeat me.
+    options: []
+  - speaker: Mighty God
+    text: Lets stop talking and continue forward I can't wait to fight you!
+    options: []
